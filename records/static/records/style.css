@@ -1,0 +1,34 @@
+body{
+      background: white url(images/background.png);
+    height: 1000px;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.divalign{
+    position: relative;
+    min-height: 1px;
+    padding-right: 20%;
+    padding-left: 20%;
+    padding-top: 70px;
+}
+
+.divalign2{
+    position: relative;
+    min-height: 1px;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 70px;
+}
+
+.divalign3{
+    position: relative;
+    min-height: 1px;
+    padding-right: 55%;
+    padding-left: 5%;
+    padding-top: 70px;
+}
+
+

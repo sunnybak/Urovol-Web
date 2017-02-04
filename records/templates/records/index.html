@@ -1,0 +1,57 @@
+{% extends 'records/base.html' %}
+{% block head %}  {% endblock %}
+{% block title %}
+Device IDs
+{% endblock %}
+
+{% block body %}
+<meta http-equiv="refresh" content="5">
+
+{% if all_pi %}
+        <div class="col-sm-8 col-md-12 divalign">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>All Records</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Session</th>
+                            <th>Pi Address</th>
+                            <th>Delete Session</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for pi in all_pi %}
+                            <tr>
+                                <td><a href = "{% url 'records:detail' pi.id %}" > {{  pi.code  }}</a></td>
+                                <td><a href = "{% url 'records:detail' pi.id %}" > {{  pi.address  }}</a></td>
+                                <td>
+                                        <form action="{% url 'records:pi-delete' pi.id %}" method="post" style="display: inline;">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="pi_id" value="{{ pi.id }}" />
+                                                <button type="submit" class="btn btn-default btn-sm">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                </button>
+                                        </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+{%  else  %}
+    <h3> You don't have any Pi's yet! </h3>
+{%  endif  %}
+
+{% endblock %}
+

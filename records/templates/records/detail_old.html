@@ -1,0 +1,83 @@
+{% extends 'records/base.html' %}
+
+{% block head %} <meta http-equiv="refresh" content="2"> {% endblock %}
+
+{% block title %}
+Patient Data
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <!-- Left Album Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h1>{{ pi.code}}</h1>
+                    <h2>{{ pi.address }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Data Info -->
+        <div class="col-sm-8 col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>All Data</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Date - Time </th>
+                            <th>Raw Vol</th>
+                            <th>Last Valid Vol</th>
+                            <th>New Vol</th>
+                            <th>Cumulative Vol</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for data in pi.data_set.all %}
+                            <tr>
+                                <td>
+                                    {{ data.date_time }}
+                                </td>
+                                <td>
+                                    {{ data.raw_vol }}
+                                </td>
+                                <td>
+                                    {{ data.las_vol }}
+                                </td>
+                                <td>
+                                    {{ data.new_vol }}
+                                </td>
+                                <td>
+                                    {{ data.cum_vol }}
+                                </td>
+                                <td>
+                                    {{ data.status }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

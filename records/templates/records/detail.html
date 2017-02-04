@@ -1,0 +1,98 @@
+{% extends 'records/base.html' %}
+
+{% block head %}
+  <meta http-equiv="refresh" content="10">
+  <meta charset="UTF-8">
+
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'records/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'records/style_detail.css' %}">
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="js/index.js"></script>
+{% endblock %}
+
+
+
+{% block title %}
+Patient Data
+{% endblock %}
+
+
+
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <!-- Left Album Info -->
+
+
+        <!-- Right Data Info -->
+        <div class="col-sm-12 col-md-12 divalign2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <div id="datatableheader">Data for Device {{pi.code}}</div>
+                    </br>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <section>
+                          <div  class="tbl-header">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <thead>
+                                    <th>Date - Time </th>
+                                    <th>Raw Vol</th>
+                                    <th>Last Valid Volume</th>
+                                    <th>New Volume</th>
+                                    <th>Cumulative Volume</th>
+                                    <th>Status</th>
+                                </thead>
+                            </table>
+                          </div>
+
+                          <!--<div  class="tbl-content">-->
+                            <table cellpadding="0" cellspacing="0" border="0" class = "table">
+
+                              <tbody>
+                                 {% for data in pi.data_set.all %}
+                                <tr>
+                                    <td>
+                                        {{ data.date_time }}
+                                    </td>
+                                    <td>
+                                        {{ data.raw_vol }}
+                                    </td>
+                                    <td>
+                                        {{ data.las_vol }}
+                                    </td>
+                                    <td>
+                                        {{ data.new_vol }}
+                                    </td>
+                                    <td>
+                                        {{ data.cum_vol }}
+                                    </td>
+                                    <td>
+                                        {{ data.status }}
+                                    </td>
+                                </tr>
+                        {% endfor %}
+                        </tbody>
+
+                            </table>
+
+                          <!--</div>-->
+                    </section>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
