@@ -24,3 +24,7 @@ class Data(models.Model) :
     def __str__(self):
         return self.date_time + ' - ' + str(self.pi.pk)
 
+
+class Stuff(models.Model):
+    month = models.IntegerField()
+    happiness = models.DecimalField(max_digits=5, decimal_places=1)
