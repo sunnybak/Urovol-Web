@@ -18,10 +18,10 @@ def records_view(request):
         DataPool(
            series=
             [{'options': {
-               'source': Stuff.objects.all()},
+               'source': Data.objects.all()},
               'terms': [
-                'month',
-                'happiness']}
+                'raw_vol',
+                'cum_vol']}
              ])
 
     #Step 2: Create the Chart object
@@ -32,15 +32,15 @@ def records_view(request):
                   'type': 'line',
                   'stacking': False},
                 'terms':{
-                  'month': [
-                    'happiness']
+                  'raw_vol': [
+                    'cum_vol']
                   }}],
             chart_options =
               {'title': {
-                   'text': 'month'},
+                   'text': 'cum_vol'},
                'xAxis': {
                     'title': {
-                       'text': 'happiness'}}})
+                       'text': 'raw_vol'}}})
 
     #Step 3: Send the chart object to the template.
     return render_to_response('plot/plot.html',{'weatherchart': cht})
