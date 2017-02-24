@@ -43,41 +43,8 @@ def records_view(request):
                        'text': 'raw_vol'}}})
 
     #Step 3: Send the chart object to the template.
-    return render_to_response('plot/plot.html',{'weatherchart': cht})
+    return render_to_response('plot/plot.html',{'patientdata': cht})
 
-
-# def records_view(request):
-#     #Step 1: Create a DataPool with the data we want to retrieve.
-#     patientdata = \
-#         DataPool(
-#            series=
-#             [{'options': {
-#                'source': Stuff.objects.all()},
-#               'terms': [
-#                 'month',
-#                 'lol']}
-#              ])
-#
-#     #Step 2: Create the Chart object
-#     cht = Chart(
-#             datasource = patientdata,
-#             series_options =
-#               [{'options':{
-#                   'type': 'line',
-#                   'stacking': False},
-#                 'terms':{
-#                   'month': [
-#                     'lol']
-#                   }}],
-#             chart_options =
-#               {'title': {
-#                    'text': 'cum_vol'},
-#                'xAxis': {
-#                     'title': {
-#                        'text': 'raw_vol'}}})
-#
-#     #Step 3: Send the chart object to the template.
-#     return render_to_response('plot/plot.html',{'weatherchart': cht})
 
 class IndexView(generic.ListView):
     template_name = 'records/index.html'
