@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .models import Pi
+from .models import Pi, Data
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.views.generic import View
@@ -8,6 +8,42 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.http import Http404
 from .forms import UserForm
+from django.shortcuts import render, render_to_response
+from chartit import DataPool, Chart
+
+
+def records_view(request):
+    #Step 1: Create a DataPool with the data we want to retrieve.
+    patientdata = \
+        DataPool(
+           series=
+            [{'options': {
+               'source': Stuff.objects.all()},
+              'terms': [
+                'month',
+                'happiness']}
+             ])
+
+    #Step 2: Create the Chart object
+    cht = Chart(
+            datasource = patientdata,
+            series_options =
+              [{'options':{
+                  'type': 'line',
+                  'stacking': False},
+                'terms':{
+                  'month': [
+                    'happiness']
+                  }}],
+            chart_options =
+              {'title': {
+                   'text': 'month'},
+               'xAxis': {
+                    'title': {
+                       'text': 'happiness'}}})
+
+    #Step 3: Send the chart object to the template.
+    return render_to_response('plot/plot.html',{'weatherchart': cht})
 
 class IndexView(generic.ListView):
     template_name = 'records/index.html'
@@ -111,3 +147,4 @@ def formView(request):
       # return render(request, 'index.html', {"username" : username})
    else:
       return render(request, 'login.html', {})
+

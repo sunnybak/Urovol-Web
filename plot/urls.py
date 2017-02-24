@@ -3,5 +3,4 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.records_view, name = 'plot'),
 ]
