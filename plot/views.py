@@ -9,7 +9,7 @@ def records_view(request):
         DataPool(
            series=
             [{'options': {
-               'source': Data.objects.filter(status="valid")},
+               'source': Data.objects.all()},
               'terms': [
                 'raw_vol',
                 'cum_vol']}
