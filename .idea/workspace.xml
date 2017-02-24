@@ -4,10 +4,6 @@
     <list default="true" id="8e68cae1-bf01-47b0-9d38-5917201aac8f" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/../plotDjango/plot/migrations/0001_initial.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../plotDjango/plot/migrations/0002_auto_20170224_0007.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/models.py" afterPath="$PROJECT_DIR$/records/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/templates/plot/plot.html" afterPath="$PROJECT_DIR$/records/templates/plot/plot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/views.py" afterPath="$PROJECT_DIR$/records/views.py" />
     </list>
     <ignored path="uv_hero.iws" />
     <ignored path=".idea/workspace.xml" />
