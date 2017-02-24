@@ -18,7 +18,7 @@ def records_view(request):
         DataPool(
            series=
             [{'options': {
-               'source': Data.objects.filter(status = "rejected")},
+               'source': Data.objects.all()},
               'terms': [
                 'raw_vol',
                 'cum_vol']}
