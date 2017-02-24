@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response
 from chartit import DataPool, Chart
 from records.models import Data, Pi
+from .models import Stuff
 
 # Create your views here.
 def records_view(request):
@@ -9,10 +10,10 @@ def records_view(request):
         DataPool(
            series=
             [{'options': {
-               'source': Data.objects.all()},
+               'source': Stuff.objects.all()},
               'terms': [
-                'raw_vol',
-                'cum_vol']}
+                'month',
+                'happiness']}
              ])
 
     #Step 2: Create the Chart object
@@ -23,15 +24,15 @@ def records_view(request):
                   'type': 'line',
                   'stacking': False},
                 'terms':{
-                  'raw_vol': [
-                    'cum_vol']
+                  'month': [
+                    'happiness']
                   }}],
             chart_options =
               {'title': {
-                   'text': 'cum vol'},
+                   'text': 'month'},
                'xAxis': {
                     'title': {
-                       'text': 'raw vol'}}})
+                       'text': 'happiness'}}})
 
     #Step 3: Send the chart object to the template.
     return render_to_response('plot/plot.html',{'weatherchart': cht})
