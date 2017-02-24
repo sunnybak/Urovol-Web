@@ -15,13 +15,10 @@ class Pi(models.Model) :
 class Data(models.Model) :
     pi = models.ForeignKey(Pi, on_delete= models.CASCADE)
     date_time = models.CharField(max_length=50)
-    # time = models.CharField(max_length=20)
     raw_vol = models.CharField(max_length=10)
     las_vol = models.CharField(max_length=10)
     new_vol = models.CharField(max_length=10)
     cum_vol = models.CharField(max_length=10)
-    # vol = models.CharField(max_length=10)
-    # cum = models.CharField(max_length=10)
     status = models.CharField(max_length=10)
 
     def __str__(self):

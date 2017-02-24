@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- code to include the highcharts and jQuery libraries goes here -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <!-- load_charts filter takes a comma-separated list of id's where -->
+    <!-- the charts need to be rendered to                             -->
+    {% load chartit %}
+    {{ weatherchart|load_charts:"container" }}
+</head>
+<body>
+    <div id='container'> Chart will be rendered here </div>
+</body>
+</html>
