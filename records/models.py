@@ -22,5 +22,5 @@ class Data(models.Model) :
     status = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.date + ' - ' + self.pi
+        return self.date_time + ' - ' + str(self.pi.pk)
 

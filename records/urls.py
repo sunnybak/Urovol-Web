@@ -9,7 +9,6 @@ urlpatterns = [
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
     url(r'^login_user/$', views.login_user, name='login_user'),
     url(r'^logout_user/$', views.logout_user, name='logout_user'),
-    url(r'^(?P<pk>[0-9]+)/plot/', include('plot.urls')),
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name = 'detail'),
     url(r'pi/add/$',views.PiCreate.as_view(), name = 'pi-add'),
     url(r'pi/(?P<pk>[0-9]+)/$', views.PiUpdate.as_view(), name='pi-update'),
