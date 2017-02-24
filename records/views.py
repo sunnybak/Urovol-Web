@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .models import Pi, Data, Stuff
+from .models import Pi, Data
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.views.generic import View
@@ -12,50 +12,16 @@ from django.shortcuts import render, render_to_response
 from chartit import DataPool, Chart
 
 
-# def records_view(request):
-#     #Step 1: Create a DataPool with the data we want to retrieve.
-#     patientdata = \
-#         DataPool(
-#            series=
-#             [{'options': {
-#                'source': Data.objects.filter(status = "rejected")},
-#               'terms': [
-#                 'raw_vol',
-#                 'cum_vol']}
-#              ])
-#
-#     #Step 2: Create the Chart object
-#     cht = Chart(
-#             datasource = patientdata,
-#             series_options =
-#               [{'options':{
-#                   'type': 'line',
-#                   'stacking': False},
-#                 'terms':{
-#                   'raw_vol': [
-#                     'cum_vol']
-#                   }}],
-#             chart_options =
-#               {'title': {
-#                    'text': 'cum_vol'},
-#                'xAxis': {
-#                     'title': {
-#                        'text': 'raw_vol'}}})
-#
-#     #Step 3: Send the chart object to the template.
-#     return render_to_response('plot/plot.html',{'weatherchart': cht})
-
-
 def records_view(request):
     #Step 1: Create a DataPool with the data we want to retrieve.
     patientdata = \
         DataPool(
            series=
             [{'options': {
-               'source': Stuff.objects.all()},
+               'source': Data.objects.filter(status = "rejected")},
               'terms': [
-                'month',
-                'lol']}
+                'raw_vol',
+                'cum_vol']}
              ])
 
     #Step 2: Create the Chart object
@@ -66,8 +32,8 @@ def records_view(request):
                   'type': 'line',
                   'stacking': False},
                 'terms':{
-                  'month': [
-                    'lol']
+                  'raw_vol': [
+                    'cum_vol']
                   }}],
             chart_options =
               {'title': {
@@ -78,6 +44,40 @@ def records_view(request):
 
     #Step 3: Send the chart object to the template.
     return render_to_response('plot/plot.html',{'weatherchart': cht})
+
+
+# def records_view(request):
+#     #Step 1: Create a DataPool with the data we want to retrieve.
+#     patientdata = \
+#         DataPool(
+#            series=
+#             [{'options': {
+#                'source': Stuff.objects.all()},
+#               'terms': [
+#                 'month',
+#                 'lol']}
+#              ])
+#
+#     #Step 2: Create the Chart object
+#     cht = Chart(
+#             datasource = patientdata,
+#             series_options =
+#               [{'options':{
+#                   'type': 'line',
+#                   'stacking': False},
+#                 'terms':{
+#                   'month': [
+#                     'lol']
+#                   }}],
+#             chart_options =
+#               {'title': {
+#                    'text': 'cum_vol'},
+#                'xAxis': {
+#                     'title': {
+#                        'text': 'raw_vol'}}})
+#
+#     #Step 3: Send the chart object to the template.
+#     return render_to_response('plot/plot.html',{'weatherchart': cht})
 
 class IndexView(generic.ListView):
     template_name = 'records/index.html'

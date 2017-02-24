@@ -91,24 +91,24 @@ DATABASES = {
     # }
 
     # Temporary Database - Testing
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'd2i3vppivu81og',
-    #     'USER': 'cmukqvlzfirmnq',
-    #     'PASSWORD': 'Dc2dad3DKM8fFovofn8otZ099p',
-    #     'HOST': 'ec2-54-235-179-112.compute-1.amazonaws.com',
-    #     'PORT': '5432',
-    # }
-    
-    # Final Database -   Storing patient records
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5nq5opbhumdlr',
-        'USER': 'kznrowmqsnyetc',
-        'PASSWORD': 'RRjBYCRf8crRhzrpHmk-HcPvnb',
-        'HOST': 'ec2-54-163-253-94.compute-1.amazonaws.com',
+        'NAME': 'd2i3vppivu81og',
+        'USER': 'cmukqvlzfirmnq',
+        'PASSWORD': 'Dc2dad3DKM8fFovofn8otZ099p',
+        'HOST': 'ec2-54-235-179-112.compute-1.amazonaws.com',
         'PORT': '5432',
     }
+    
+    # Final Database -   Storing patient records
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'd5nq5opbhumdlr',
+    #     'USER': 'kznrowmqsnyetc',
+    #     'PASSWORD': 'RRjBYCRf8crRhzrpHmk-HcPvnb',
+    #     'HOST': 'ec2-54-163-253-94.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 
 }
 
