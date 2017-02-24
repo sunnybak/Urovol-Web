@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'plot.apps.PlotConfig',
     'records.apps.RecordsConfig',
     'home.apps.HomeConfig',
     'django.contrib.admin',
