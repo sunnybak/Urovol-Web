@@ -12,7 +12,51 @@ from django.shortcuts import render, render_to_response
 from chartit import DataPool, Chart
 
 
-def records_view(request):
+# def records_view(request):
+#     #Step 1: Create a DataPool with the data we want to retrieve.
+#     patientdata = \
+#         DataPool(
+#            series=
+#             [{'options': {
+#                'source': Data.objects.all()},
+#               'terms': [
+#                 'date_time',
+#                 'cum_vol']}
+#              ])
+#
+#     #Step 2: Create the Chart object
+#     cht = Chart(
+#             datasource = patientdata,
+#             series_options =
+#               [{'options':{
+#                   'type': 'line',
+#                   'stacking': False},
+#                 'terms':{
+#                   'date_time': [
+#                     'cum_vol']
+#                   }}],
+#             chart_options =
+#               {'title': {
+#                    'text': 'cum_vol'},
+#                'xAxis': {
+#                     'title': {
+#                        'text': 'date_time'}}})
+#
+#     #Step 3: Send the chart object to the template.
+#     return render_to_response('records/detail.html',{'patientdata': cht})
+
+
+class IndexView(generic.ListView):
+    template_name = 'records/index.html'
+    context_object_name = 'all_pi'
+
+    def get_queryset(self):
+        return Pi.objects.all()
+
+
+def detail(request, pk):
+    pi = get_object_or_404(Pi, pk=pk)
+
     #Step 1: Create a DataPool with the data we want to retrieve.
     patientdata = \
         DataPool(
@@ -20,7 +64,7 @@ def records_view(request):
             [{'options': {
                'source': Data.objects.all()},
               'terms': [
-                'raw_vol',
+                'date_time',
                 'cum_vol']}
              ])
 
@@ -32,7 +76,7 @@ def records_view(request):
                   'type': 'line',
                   'stacking': False},
                 'terms':{
-                  'raw_vol': [
+                  'date_time': [
                     'cum_vol']
                   }}],
             chart_options =
@@ -40,22 +84,11 @@ def records_view(request):
                    'text': 'cum_vol'},
                'xAxis': {
                     'title': {
-                       'text': 'raw_vol'}}})
+                       'text': 'date_time'}}})
 
-    #Step 3: Send the chart object to the template.
-    return render_to_response('plot/plot.html',{'patientdata': cht})
+    return render_to_response('records/detail.html',{'patientdata': cht,
+                                                 'pi':pi} )
 
-
-class IndexView(generic.ListView):
-    template_name = 'records/index.html'
-    context_object_name = 'all_pi'
-
-    def get_queryset(self):
-        return Pi.objects.all()
-
-class DetailView(generic.DetailView) :
-    model = Pi
-    template_name = 'records/detail.html'
 
 class PiCreate(generic.CreateView) :
     model = Pi
