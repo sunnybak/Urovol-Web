@@ -1,7 +1,7 @@
 {% extends 'records/base.html' %}
 
 {% block head %}
-  <meta http-equiv="refresh" content="10">
+  <!--<meta http-equiv="refresh" content="10">-->
   <meta charset="UTF-8">
 
 
@@ -43,7 +43,7 @@ Patient Data
     {% load chartit %}
     {{ patientdata|load_charts:"container" }}
 
-                        <div id='container'> Chart will be rendered here </div>
+                        <div id='container'>  </div>
 
                     <div id="datatableheader">Data for Device {{pi.code}}</div>
                     </br>

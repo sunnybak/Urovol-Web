@@ -81,10 +81,10 @@ def detail(request, pk):
                   }}],
             chart_options =
               {'title': {
-                   'text': 'cum_vol'},
+                   'text': 'Cumulative Vol'},
                'xAxis': {
                     'title': {
-                       'text': 'date_time'}}})
+                       'text': 'Time'}}})
 
     return render_to_response('records/detail.html',{'patientdata': cht,
                                                  'pi':pi} )
