@@ -62,7 +62,7 @@ def detail(request, pk):
         DataPool(
            series=
             [{'options': {
-               'source': Data.objects.all()},
+               'source': Data.objects.filter(pi=pi)},
               'terms': [
                 'date_time',
                 'cum_vol']}
