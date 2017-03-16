@@ -83,20 +83,22 @@ WSGI_APPLICATION = 'uv_hero.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+
+    # # Default offline sqlite database
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
 
     # # Temporary Database - Testing
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'd2i3vppivu81og',
-    #     'USER': 'cmukqvlzfirmnq',
-    #     'PASSWORD': 'Dc2dad3DKM8fFovofn8otZ099p',
-    #     'HOST': 'ec2-54-235-179-112.compute-1.amazonaws.com',
-    #     'PORT': '5432',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2i3vppivu81og',
+        'USER': 'cmukqvlzfirmnq',
+        'PASSWORD': 'Dc2dad3DKM8fFovofn8otZ099p',
+        'HOST': 'ec2-54-235-179-112.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
     
     # Final Database -   Storing patient records
     # 'default': {
