@@ -9,49 +9,60 @@
 ${demo.css}
 		</style>
 		<script type="text/javascript">
-$(function () {
+            $(function () {
 
-    var chartDataUrl = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
-//    chartDataUrl =
-//            'https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?';
+                var chartDataUrl = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
+            //    chartDataUrl =
+            //            'https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?';
 
-    $.getJSON(chartDataUrl, function (data) {
-        // Create the chart
+                $.getJSON(chartDataUrl, function (data) {
+                    // Create the chart
 
-        Highcharts.stockChart('container', {
-
-
-            title: {
-                text: 'Urovol Data'
-            },
-
-            credits: {
-                enabled: false
-            },
-
-            rangeSelector: {
-                enabled: true,
-                allButtonsEnabled: true,
-                selected: 2
-            },
-
-            tooltip: {
-                valueSuffix: 'ml'
-            },
+                    Highcharts.stockChart('container', {
 
 
-            series: [{
-                name: 'Vol',
-                data: data,
-                tooltip: {
-                    valueDecimals: 2
-                }
-            }]
-        });
-    });
+                        title: {
+                            text: 'Urovol Data'
+                        },
 
-});
+                        credits: {
+                            enabled: false
+                        },
 
+                        rangeSelector: {
+                            enabled: true,
+                            allButtonsEnabled: true,
+
+                            buttons: [{
+                                type: 'minute',
+                                count: 10,
+                                text: '10min'
+                            }, {
+                                type: 'day',
+                                count: 1,
+                                text: '1 day'
+                            }, {
+                                type: 'all',
+                                text: 'All'
+                            }],
+                            selected: 0
+                        },
+
+                        tooltip: {
+                            valueSuffix: 'ml'
+                        },
+
+                        series: [{
+                            name: 'Vol',
+                            data: data,
+                            tooltip: {
+                                valueDecimals: 2
+                            }
+                        }]
+                    });
+                });
+
+            });
 		</script>
 
 
