@@ -22,7 +22,7 @@ ${demo.css}
 
 
                         title: {
-                            text: 'Urovol Data'
+                            text: 'Patient Data'
                         },
 
                         credits: {
@@ -82,8 +82,6 @@ ${demo.css}
 		</script>
 
 
-
-
   {% load staticfiles %}
   <link rel="stylesheet" href="{% static 'records/reset.css' %}">
   <link rel="stylesheet" href="{% static 'records/style_detail.css' %}">
@@ -113,8 +111,7 @@ Patient Data
                 <div class="panel-body">
 
 
-                    <div id="datatableheader">Data for Device {{pi.code}}</div>
-
+                    <div id="datatableheader">Data for Session {{pi.code}}</div>
 
 
                     <div id="container" style="height: 400px; min-width: 310px">
