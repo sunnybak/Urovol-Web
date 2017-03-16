@@ -11,10 +11,7 @@
   <link rel="stylesheet" href="{% static 'records/reset.css' %}">
   <link rel="stylesheet" href="{% static 'records/style_detail.css' %}">
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<!-- code to include the highcharts and jQuery libraries goes here -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
   <script src="js/index.js"></script>
 {% endblock %}
 
@@ -31,19 +28,10 @@ Patient Data
 
     <div class="row">
 
-        <!-- Left Album Info -->
-
-
-        <!-- Right Data Info -->
         <div class="col-sm-12 col-md-12 divalign2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <!-- load_charts filter takes a comma-separated list of id's where -->
-    <!-- the charts need to be rendered to                             -->
-    {% load chartit %}
-    {{ patientdata|load_charts:"container" }}
 
-                        <div id='container'>  </div>
 
                     <div id="datatableheader">Data for Device {{pi.code}}</div>
                     </br>
@@ -65,7 +53,6 @@ Patient Data
                             </table>
                           </div>
 
-                          <!--<div  class="tbl-content">-->
                             <table cellpadding="0" cellspacing="0" border="0" class = "table">
 
                               <tbody>
@@ -90,12 +77,11 @@ Patient Data
                                         {{ data.status }}
                                     </td>
                                 </tr>
-                        {% endfor %}
+                            {% endfor %}
                         </tbody>
 
                             </table>
 
-                          <!--</div>-->
                     </section>
 
 
