@@ -141,12 +141,11 @@ Patient Data
                           </div>
 
                             <table cellpadding="0" cellspacing="0" border="0" class = "table">
-
                               <tbody>
                                  {% for data in pi.data_set.all %}
                                 <tr>
                                     <td>
-                                        {{ data.date_time }}
+                                        {{ data }}
                                     </td>
                                     <td>
                                         {{ data.raw_vol }}

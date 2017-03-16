@@ -13,6 +13,8 @@ class IndexView(generic.ListView):
 
 def detail(request, pi_id):
     pi = get_object_or_404(Pi, pk=pi_id)
+
+
     return render(request, 'records/detail.html',{'pi': pi})
 
 class PiCreate(generic.CreateView) :

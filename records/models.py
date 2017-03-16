@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from datetime import datetime
 
 class Pi(models.Model) :
     address = models.CharField(max_length=100)
@@ -21,4 +22,4 @@ class Data(models.Model):
     status = models.CharField(max_length=10)
 
     def __str__(self):
-        return str(self.date_time) + ' - ' + str(self.pi.pk)
+        return datetime.fromtimestamp(self.date_time - 14400).strftime('%a %m/%d %I:%M:%S %p')
