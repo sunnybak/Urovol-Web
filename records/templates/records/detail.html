@@ -4,6 +4,56 @@
   <!--<meta http-equiv="refresh" content="10">-->
   <meta charset="UTF-8">
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+$(function () {
+
+    var chartDataUrl = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
+//    chartDataUrl =
+//            'https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?';
+
+    $.getJSON(chartDataUrl, function (data) {
+        // Create the chart
+
+        Highcharts.stockChart('container', {
+
+
+            title: {
+                text: 'Urovol Data'
+            },
+
+            credits: {
+                enabled: false
+            },
+
+            rangeSelector: {
+                enabled: true,
+                allButtonsEnabled: true,
+                selected: 2
+            },
+
+            tooltip: {
+                valueSuffix: ' cm3'
+            },
+
+
+            series: [{
+                name: 'Vol',
+                data: data,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+    });
+
+});
+
+		</script>
+
 
 
 
@@ -24,6 +74,9 @@ Patient Data
 
 
 {% block body %}
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
 <div class="container-fluid songs-container">
 
     <div class="row">
@@ -34,6 +87,16 @@ Patient Data
 
 
                     <div id="datatableheader">Data for Device {{pi.code}}</div>
+
+
+
+                    <div id="container" style="height: 400px; min-width: 310px">
+
+                    </div>
+
+
+
+
                     </br>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>

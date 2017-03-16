@@ -2,125 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e68cae1-bf01-47b0-9d38-5917201aac8f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/fonts/fontawesome-webfont.woff2" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/fonts/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plot/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plot/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plot/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plot/migrations/0002_delete_stuff.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plot/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plot/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plot/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plot/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/forms.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/reports.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/templates/plot/plot.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/templates/records/detail_old.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/templates/records/form-template.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/templates/records/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/templates/records/registration_form.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/db1.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/__init__.py" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/migrations/__init__.py" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/LICENSE" afterPath="$PROJECT_DIR$/uv_hero/static/home/LICENSE" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/README.md" afterPath="$PROJECT_DIR$/uv_hero/static/home/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/css/creative.css" afterPath="$PROJECT_DIR$/uv_hero/static/home/css/creative.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/css/creative.min.css" afterPath="$PROJECT_DIR$/uv_hero/static/home/css/creative.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/gulpfile.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/gulpfile.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/header.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/header.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/header.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/header.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/fullsize/1.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/fullsize/1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/fullsize/2.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/fullsize/2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/fullsize/3.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/fullsize/3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/fullsize/4.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/fullsize/4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/fullsize/5.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/fullsize/5.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/fullsize/6.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/fullsize/6.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/thumbnails/1.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/thumbnails/1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/thumbnails/2.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/thumbnails/2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/thumbnails/3.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/thumbnails/3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/thumbnails/4.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/thumbnails/4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/thumbnails/5.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/thumbnails/5.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/img/portfolio/thumbnails/6.jpg" afterPath="$PROJECT_DIR$/uv_hero/static/home/img/portfolio/thumbnails/6.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/js/creative.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/js/creative.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/js/creative.min.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/js/creative.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/less/creative.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/less/creative.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/less/mixins.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/less/mixins.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/less/variables.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/less/variables.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/package.json" afterPath="$PROJECT_DIR$/uv_hero/static/home/package.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/css/bootstrap.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/css/bootstrap.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/js/bootstrap.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/js/bootstrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/bootstrap/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/js/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/css/font-awesome.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/css/font-awesome.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/animated.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/animated.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/bordered-pulled.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/core.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/fixed-width.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/font-awesome.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/icons.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/larger.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/list.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/mixins.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/path.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/rotated-flipped.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/screen-reader.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/screen-reader.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/stacked.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/less/variables.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_animated.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_animated.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_core.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_fixed-width.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_icons.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_larger.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_list.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_mixins.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_path.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_rotated-flipped.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_screen-reader.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_screen-reader.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_stacked.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/_variables.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/scss/font-awesome.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/jquery/jquery.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/jquery/jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/jquery/jquery.min.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/jquery/jquery.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/magnific-popup/jquery.magnific-popup.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/magnific-popup/jquery.magnific-popup.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/magnific-popup/jquery.magnific-popup.min.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/magnific-popup/jquery.magnific-popup.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/magnific-popup/magnific-popup.css" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/magnific-popup/magnific-popup.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/scrollreveal/scrollreveal.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/scrollreveal/scrollreveal.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/static/home/vendor/scrollreveal/scrollreveal.min.js" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/scrollreveal/scrollreveal.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/templates/home/index.html" afterPath="$PROJECT_DIR$/records/templates/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/home/views.py" afterPath="$PROJECT_DIR$/uv_hero/views.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plot/__init__.py" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plot/migrations/__init__.py" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/records/migrations/__init__.py" afterPath="$PROJECT_DIR$/uv_hero/static/home/vendor/font-awesome/fonts/FontAwesome.otf" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../plotDjango/plot/reports.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../plotDjango/templates/plot/index.html" afterPath="$PROJECT_DIR$/../plotDjango/templates/plot/plot.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../plotDjango/plot/views.py" afterPath="$PROJECT_DIR$/../plotDjango/plot/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../plotDjango/plotDjango/urls.py" afterPath="$PROJECT_DIR$/../plotDjango/plotDjango/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/models.py" afterPath="$PROJECT_DIR$/records/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/templates/records/detail.html" afterPath="$PROJECT_DIR$/records/templates/records/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/templates/records/pi_form.html" afterPath="$PROJECT_DIR$/records/templates/records/pi_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/urls.py" afterPath="$PROJECT_DIR$/records/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/views.py" afterPath="$PROJECT_DIR$/records/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uv_hero/settings.py" afterPath="$PROJECT_DIR$/uv_hero/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uv_hero/urls.py" afterPath="$PROJECT_DIR$/uv_hero/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uv_hero/views.py" afterPath="$PROJECT_DIR$/uv_hero/views.py" />
     </list>
     <ignored path="uv_hero.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -146,35 +36,15 @@
     <favorites_list name="uv_hero" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uv_hero/urls.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/records/templates/records/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="26" />
+            <state relative-caret-position="660">
+              <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uv_hero/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/records/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -208,17 +78,13 @@
         <option value="$PROJECT_DIR$/records/reports.py" />
         <option value="$PROJECT_DIR$/../plotDjango/plot/urls.py" />
         <option value="$PROJECT_DIR$/../plotDjango/plot/migrations/reports.py" />
-        <option value="$PROJECT_DIR$/../plotDjango/plotDjango/urls.py" />
         <option value="$PROJECT_DIR$/../plotDjango/plot/reports.py" />
-        <option value="$PROJECT_DIR$/../plotDjango/templates/plot/plot.html" />
         <option value="$PROJECT_DIR$/../plotDjango/templates/plot/index.html" />
         <option value="$PROJECT_DIR$/../plotDjango/plot/models.py" />
-        <option value="$PROJECT_DIR$/../plotDjango/plot/views.py" />
         <option value="$PROJECT_DIR$/a/models.py" />
         <option value="$PROJECT_DIR$/../mysite/ok/models.py" />
         <option value="$PROJECT_DIR$/../mysite/mysite/settings.py" />
         <option value="$PROJECT_DIR$/records/admin.py" />
-        <option value="$PROJECT_DIR$/records/templates/records/detail.html" />
         <option value="$PROJECT_DIR$/home/urls.py" />
         <option value="$PROJECT_DIR$/uv_hero/settings.py" />
         <option value="$PROJECT_DIR$/records/templates/records/form-template.html" />
@@ -227,8 +93,12 @@
         <option value="$PROJECT_DIR$/records/urls.py" />
         <option value="$PROJECT_DIR$/records/views.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/../plotDjango/plotDjango/urls.py" />
+        <option value="$PROJECT_DIR$/../plotDjango/plot/views.py" />
         <option value="$PROJECT_DIR$/uv_hero/urls.py" />
+        <option value="$PROJECT_DIR$/../plotDjango/templates/plot/plot.html" />
         <option value="$PROJECT_DIR$/uv_hero/views.py" />
+        <option value="$PROJECT_DIR$/records/templates/records/detail.html" />
       </list>
     </option>
   </component>
@@ -267,6 +137,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -296,20 +167,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="uv_hero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uv_hero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uv_hero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="records" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -347,28 +204,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="records" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uv_hero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uv_hero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="records" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -378,7 +213,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,7 +259,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/uv_hero/templates/plot/index.html">
+    <configuration default="false" name="plot.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/uv_hero/templates/plot/plot.html">
       <method />
     </configuration>
     <configuration default="false" name="try.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/uv_hero/templates/plot/try.html">
@@ -659,7 +493,7 @@
     </configuration>
     <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.views" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.plot.html" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.try.html" />
       <item index="3" class="java.lang.String" itemvalue="Python.rooms" />
     </list>
@@ -667,7 +501,7 @@
       <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Python.rooms" />
         <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.try.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.plot.html" />
         <item index="3" class="java.lang.String" itemvalue="Python.views" />
       </list>
     </recent_temporary>
@@ -689,7 +523,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26180258" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20028612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -726,49 +560,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../plotDjango/templates/index.htm" />
-    <entry file="file://$PROJECT_DIR$/../plotDjango/plot/reports.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/records/templates/plot/plot.html" />
-    <entry file="file://$PROJECT_DIR$/../plotDjango/plot/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../plotDjango/templates/plot/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../plotDjango/templates/plot/plot.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../plotDjango/plotDjango/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../plotDjango/plot/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/records/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -776,35 +568,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/home/views.py" />
     <entry file="file://$PROJECT_DIR$/records/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/a/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/a/models.py" />
     <entry file="file://$PROJECT_DIR$/../mysite/mysite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,9 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -826,27 +599,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../mysite/db.sqlite3">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../mysite/db.sqlite3" />
     <entry file="file://$PROJECT_DIR$/db.sqlite3">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/records/templates/records/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,7 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,23 +618,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/home/models.py" />
     <entry file="file://$PROJECT_DIR$/uv_hero/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -886,7 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,119 +640,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/templates/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/uv_hero/templates/home/index.html" />
+    <entry file="file://$PROJECT_DIR$/home/urls.py" />
+    <entry file="file://$PROJECT_DIR$/plot/urls.py" />
+    <entry file="file://$PROJECT_DIR$/plot/views.py" />
+    <entry file="file://$PROJECT_DIR$/plot/models.py" />
+    <entry file="file://$PROJECT_DIR$/plot/admin.py" />
     <entry file="file://$PROJECT_DIR$/uv_hero/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/records/templates/records/registration_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/records/templates/records/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/records/templates/records/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/records/templates/records/registration_form.html" />
+    <entry file="file://$PROJECT_DIR$/records/templates/records/login.html" />
     <entry file="file://$PROJECT_DIR$/records/templates/records/pi_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/records/templates/records/form-template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/records/templates/records/detail_old.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/records/templates/records/form-template.html" />
+    <entry file="file://$PROJECT_DIR$/records/templates/records/detail_old.html" />
     <entry file="file://$PROJECT_DIR$/records/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,103 +678,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/records/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/records/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/records/reports.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/records/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/records/forms.py" />
+    <entry file="file://$PROJECT_DIR$/records/reports.py" />
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/records/urls.py">
+    <entry file="file://$PROJECT_DIR$/uv_hero/templates/uv_hero/index.html" />
+    <entry file="file://$PROJECT_DIR$/uv_hero/templates/index.html" />
+    <entry file="file://$PROJECT_DIR$/uv_hero/index.html" />
+    <entry file="file://$PROJECT_DIR$/../plotDjango/plot/reports.py" />
+    <entry file="file://$PROJECT_DIR$/../plotDjango/templates/plot/plot.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/templates/uv_hero/index.html">
+    <entry file="file://$PROJECT_DIR$/../plotDjango/plot/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/../plotDjango/plotDjango/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="120">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1118,7 +719,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/records/templates/records/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/records/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../plotDjango/templates/plot/plot.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../plotDjango/plot/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/records/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uv_hero/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uv_hero/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/records/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/records/templates/records/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
