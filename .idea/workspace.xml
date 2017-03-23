@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8e68cae1-bf01-47b0-9d38-5917201aac8f" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/../plotDjango/plot/reports.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/records/migrations/__init__.py" afterPath="" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../plotDjango/templates/plot/index.html" afterPath="$PROJECT_DIR$/../plotDjango/templates/plot/plot.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../plotDjango/.idea/plotDjango.iml" afterPath="$PROJECT_DIR$/../plotDjango/.idea/plotDjango.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../plotDjango/plot/views.py" afterPath="$PROJECT_DIR$/../plotDjango/plot/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../plotDjango/plotDjango/urls.py" afterPath="$PROJECT_DIR$/../plotDjango/plotDjango/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/models.py" afterPath="$PROJECT_DIR$/records/models.py" />
     </list>
     <ignored path="uv_hero.iws" />
