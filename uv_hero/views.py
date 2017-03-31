@@ -13,7 +13,7 @@ def chart_data_json(request):
     pi = params.get('pi', 0)
     print(pi)
 
-    dataObjects = Data.objects.filter(pi=pi)
+    dataObjects = Data.objects.filter(pi=pi, status="valid")
 
     data = []
 
