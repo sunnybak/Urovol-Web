@@ -7,7 +7,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../plotDjango/.idea/plotDjango.iml" afterPath="$PROJECT_DIR$/../plotDjango/.idea/plotDjango.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../plotDjango/plot/views.py" afterPath="$PROJECT_DIR$/../plotDjango/plot/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../plotDjango/plotDjango/urls.py" afterPath="$PROJECT_DIR$/../plotDjango/plotDjango/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uv_hero/views.py" afterPath="$PROJECT_DIR$/uv_hero/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/templates/records/detail.html" afterPath="$PROJECT_DIR$/records/templates/records/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/views.py" afterPath="$PROJECT_DIR$/records/views.py" />
     </list>
     <ignored path="uv_hero.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,10 +39,22 @@
       <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/records/templates/records/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+            <state relative-caret-position="357">
+              <caret line="153" column="32" selection-start-line="153" selection-start-column="32" selection-end-line="153" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/records/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -59,22 +73,10 @@
         </entry>
       </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/records/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uv_hero/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -128,10 +130,10 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/uv_hero/settings.py" />
         <option value="$PROJECT_DIR$/records/templates/records/base.html" />
-        <option value="$PROJECT_DIR$/records/views.py" />
         <option value="$PROJECT_DIR$/records/models.py" />
-        <option value="$PROJECT_DIR$/records/templates/records/detail.html" />
         <option value="$PROJECT_DIR$/uv_hero/views.py" />
+        <option value="$PROJECT_DIR$/records/views.py" />
+        <option value="$PROJECT_DIR$/records/templates/records/detail.html" />
       </list>
     </option>
   </component>
@@ -838,12 +840,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/records/templates/records/detail.html">
+    <entry file="file://$PROJECT_DIR$/uv_hero/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+        <state relative-caret-position="225">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -858,22 +860,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/records/views.py">
+    <entry file="file://$PROJECT_DIR$/records/templates/records/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        <state relative-caret-position="357">
+          <caret line="153" column="32" selection-start-line="153" selection-start-column="32" selection-end-line="153" selection-end-column="32" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/views.py">
+    <entry file="file://$PROJECT_DIR$/records/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        <state relative-caret-position="360">
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
