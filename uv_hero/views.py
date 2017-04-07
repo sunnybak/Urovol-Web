@@ -15,14 +15,12 @@ def chart_data_json(request):
 
     dataObjects = Data.objects.filter(pi=pi, status="valid")
 
-    objects = []
+    data = []
 
     for d in dataObjects:
-        objects.append([int(d.date_time - 14400)* 1000, d.cum_vol])
+        data.append([int(d.date_time - 14400)* 1000, d.cum_vol])
 
-    objects = sorted(objects,key=lambda x: x[0])
-
-    data = deepcopy(objects)
+    data = deepcopy(sorted(data,key=lambda x: x[0]))
 
 
     return HttpResponse(simplejson.dumps(data),content_type='application/json')

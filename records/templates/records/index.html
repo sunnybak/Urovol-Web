@@ -35,7 +35,7 @@ Device IDs
                                         <form action="{% url 'records:pi-delete' pi.id %}" method="post" style="display: inline;">
                                             {% csrf_token %}
                                             <input type="hidden" name="pi_id" value="{{ pi.id }}" />
-                                                <button type="submit" class="btn btn-default btn-sm">
+                                                <button type="submit" class="btn btn-default btn-sm" onclick="return confirm('Are you sure you want to delete the session?')">
                                                     <span class="glyphicon glyphicon-trash"></span>
                                                 </button>
                                         </form>

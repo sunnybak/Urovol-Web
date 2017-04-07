@@ -6,10 +6,8 @@ from django.shortcuts import render, get_object_or_404
 class IndexView(generic.ListView):
     template_name = 'records/index.html'
     context_object_name = 'all_pi'
-
     def get_queryset(self):
-        return Pi.objects.all()
-
+        return Pi.objects.all()[::-1]
 
 def detail(request, pi_id):
     pi = get_object_or_404(Pi, pk=pi_id)
