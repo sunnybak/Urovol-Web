@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404
 def index(request):
     class piIndex(object):
         def __init__(self, pi):
-            data = Data.objects.filter(pi=pi)
+            data = Data.objects.filter(pi=pi, status="valid")
             self.id = pi.id
             self.code = pi.code
             self.address = pi.address
