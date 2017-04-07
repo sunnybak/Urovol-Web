@@ -12,8 +12,8 @@ ${demo.css}
             $(function () {
 
                 var chartDataUrl = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
-            //    chartDataUrl =
-            //            'https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?';
+//                chartDataUrl =
+//                        'https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?';
 
                 $.getJSON(chartDataUrl, function (data) {
                     // Create the chart
@@ -64,9 +64,9 @@ ${demo.css}
                             selected: 3
                         },
 
-                        tooltip: {
-                            valueSuffix: 'ml'
-                        },
+//                        tooltip: {
+//                            valueSuffix: 'ml'
+//                        },
 
 
                         xAxis: {
