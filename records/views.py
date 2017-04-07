@@ -3,14 +3,6 @@ from django.views import generic
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, get_object_or_404
 
-# class IndexView(generic.ListView):
-#     template_name = 'records/index.html'
-#     context_object_name = 'all_pi'
-#     def get_queryset(self):
-#         return Pi.objects.all()[::-1]
-
-
-
 def index(request):
     class piIndex(object):
         def __init__(self, pi):

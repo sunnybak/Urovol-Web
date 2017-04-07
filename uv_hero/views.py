@@ -18,7 +18,7 @@ def chart_data_json(request):
     data = []
 
     for d in dataObjects:
-        data.append([int(d.date_time - 14400)* 1000, d.cum_vol])
+        data.append([int((d.date_time * 1000) - 14400000), d.cum_vol])
 
     data = deepcopy(sorted(data,key=lambda x: x[0]))
 
