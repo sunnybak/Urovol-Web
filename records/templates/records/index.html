@@ -7,7 +7,7 @@ Device IDs
 {% block body %}
 <meta http-equiv="refresh" content="5">
 
-{% if all_pi %}
+{% if allpi %}
         <div class="col-sm-8 col-md-12 divalign">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -20,16 +20,21 @@ Device IDs
 
                     <table class="table">
                         <thead>
-                        <tr>
-                            <th>Session</th>
-                            <th>Pi Address</th>
-                            <th>Delete Session</th>
+                        <tr align="center">
+                            <td><strong>Session</strong></td>
+                            <td><strong>Latest Reading</strong></td>
+                            <td><strong>Number of Records</strong></td>
+                            <td><strong>Pi Address</strong></td>
+                            <td><strong>Delete Session</strong></td>
+
                         </tr>
                         </thead>
                         <tbody>
-                        {% for pi in all_pi %}
-                            <tr>
+                        {% for pi in allpi %}
+                            <tr align="center">
                                 <td><a href = "{% url 'records:detail' pi.id %}" > {{  pi.code  }}</a></td>
+                                <td>{{ pi.latest }}</td>
+                                <td>{{ pi.len }}</td>
                                 <td><a href = "{% url 'records:detail' pi.id %}" > {{  pi.address  }}</a></td>
                                 <td>
                                         <form action="{% url 'records:pi-delete' pi.id %}" method="post" style="display: inline;">
@@ -40,8 +45,10 @@ Device IDs
                                                 </button>
                                         </form>
                                 </td>
+
                             </tr>
                         {% endfor %}
+
                         </tbody>
                     </table>
 

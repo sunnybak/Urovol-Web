@@ -3,11 +3,30 @@ from django.views import generic
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, get_object_or_404
 
-class IndexView(generic.ListView):
-    template_name = 'records/index.html'
-    context_object_name = 'all_pi'
-    def get_queryset(self):
-        return Pi.objects.all()[::-1]
+# class IndexView(generic.ListView):
+#     template_name = 'records/index.html'
+#     context_object_name = 'all_pi'
+#     def get_queryset(self):
+#         return Pi.objects.all()[::-1]
+
+
+
+def index(request):
+    class piIndex(object):
+        def __init__(self, pi):
+            data = Data.objects.filter(pi=pi)
+            self.id = pi.id
+            self.code = pi.code
+            self.address = pi.address
+            self.len = len(data)
+            if self.len != 0:
+                self.latest = max(data, key=lambda d: d.date_time)
+            else:
+                self.latest = "N/A"
+    all = []
+    for pi in Pi.objects.all()[::-1]:
+        all.append(piIndex(pi))
+    return render(request, 'records/index.html', {'allpi': all })
 
 def detail(request, pi_id):
     pi = get_object_or_404(Pi, pk=pi_id)
