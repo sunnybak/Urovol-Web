@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from records.models import Data, Pi
+from records.models import Data
 from django.http import HttpResponse
 import simplejson
 from copy import deepcopy
@@ -21,7 +21,6 @@ def chart_data_json(request):
         data.append([int((d.date_time * 1000) - 14400000), d.cum_vol])
 
     data = deepcopy(sorted(data,key=lambda x: x[0]))
-
 
     return HttpResponse(simplejson.dumps(data),content_type='application/json')
 
