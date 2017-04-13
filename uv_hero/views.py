@@ -67,8 +67,8 @@ def all_data_json(request):
         if tick % 3 == 0 and tick > 0:
             last_six = [x[1] for x in readings[-1*(lastN-1):]]
             last_six.append(reading)
-            avg = np.mean(last_six)
-            std = np.std(last_six)
+            avg = float(np.mean(last_six))
+            std = float(np.std(last_six))
 
             if avg > AVG and std < STD:
                 last = avg
