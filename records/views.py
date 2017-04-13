@@ -32,7 +32,7 @@ def simul(request, pi_id):
     s1 = request.POST.get('s1', "9")
     s2 = request.POST.get('s2', "9")
     n1 = request.POST.get('n1', "6")
-    n2 = request.POST.get('n2', "6")
+    n2 = request.POST.get('n2', "3")
     real = request.POST.get('data', "")
 
     file = open('data.txt', 'w')
