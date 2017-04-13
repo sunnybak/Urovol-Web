@@ -52,4 +52,3 @@ class PiUpdate(generic.UpdateView) :
 class PiDelete(generic.DeleteView) :
     model = Pi
     success_url = reverse_lazy('records:index')
-
