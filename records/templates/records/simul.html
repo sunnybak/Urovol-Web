@@ -1,0 +1,225 @@
+{% extends 'records/base.html' %}
+
+{% block head %}
+  <!--<meta http-equiv="refresh" content="10">-->
+  <meta charset="UTF-8">
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+            var graph1 = "{% url 'all_data_json' %}?pi={{ pi.pk }}&AVG={{a1}}&STD={{s1}}&lN={{n1}}";
+            var graph2 = "{% url 'all_data_json' %}?pi={{ pi.pk }}&AVG={{a2}}&STD={{s2}}&lN={{n2}}";
+            var graph3 = "{% url 'real_data_json' %}";
+
+            var seriesOptions = [],
+            seriesCounter = 0,
+            names = ['Graph 1', 'Graph 2', 'Real Data'];
+            var urls = [graph1, graph2, graph3];
+
+                function createChart() {
+                    // Create the chart
+
+                    Highcharts.stockChart('container', {
+
+
+                        title: {
+                            text: 'Patient Data'
+                        },
+
+                        credits: {
+                            enabled: false
+                        },
+
+                        rangeSelector: {
+                            enabled: true,
+                            allButtonsEnabled: true,
+
+                            buttons: [{
+                                type: 'minute',
+                                count: 30,
+                                text: 'min'
+                            }, {
+                                type: 'hour',
+                                count: 1,
+                                text: 'hr'
+                            }, {
+                                type: 'day',
+                                count: 1,
+                                text: 'd'
+                            }, {
+                                type: 'day',
+                                count: 2,
+                                text: '2d'
+                            }, {
+                                type: 'week',
+                                count: 1,
+                                text: 'wk'
+                            }, {
+                                type: 'month',
+                                count: 1,
+                                text: 'mon'
+                            }, {
+                                type: 'all',
+                                text: 'All'
+                            }],
+                            selected: 3
+                        },
+
+                        xAxis: {
+                            title: {
+                                text: 'Date/Time'
+                            }
+                        },
+
+                        yAxis: {
+                            title: {
+                                text: 'Volume'
+                            }
+                        },
+
+                        tooltip: {
+                            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+                            valueDecimals: 2,
+                            split: true,
+                            valueSuffix: 'ml'
+                        },
+
+                        series: seriesOptions
+
+                    });
+            }
+            var n = -1;
+                $.each(names, function (i, name) {
+                    n += 1;
+                    $.getJSON(urls[n], function (data) {
+
+                        seriesOptions[i] = {
+                            name: name,
+                            data: data
+                        };
+
+                        // As we're loading the data asynchronously, we don't know what order it will arrive. So
+                        // we keep a counter and create the chart when all the data is loaded.
+                        seriesCounter += 1;
+
+                        if (seriesCounter === names.length) {
+                            createChart();
+                        }
+
+                    });
+            });
+		</script>
+
+
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'records/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'records/style_detail.css' %}">
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  <script src="js/index.js"></script>
+{% endblock %}
+
+
+
+{% block title %}
+Patient Data
+{% endblock %}
+
+
+
+{% block body %}
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
+<div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-12 divalign2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+
+                    <div id="datatableheader">Simulation for Session {{pi.code}}</div>
+
+
+                    <div id="container" style="height: 400px; min-width: 310px">
+
+                    </div>
+
+                    <br>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <form action="{% url 'simul' pi.id %}" style="display: inline;" method="post">
+                        {% csrf_token %}
+                    <section>
+                          <div  class="tbl-header">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <thead>
+                                    <th>Graph 1</th>
+                                    <th>Graph 2</th>
+                                    <th>Real Data</th>
+                                </thead>
+                            </table>
+                          </div>
+
+                            <table cellpadding="0" cellspacing="0" border="0" class = "table">
+                              <tbody>
+                                <tr>
+                                    <td>
+                                        <label for="a1">Average: </label><br>
+                                      <input id="a1" type="text" name="a1" value="{{ a1 }}">
+                                    </td>
+                                    <td>
+                                        <label for="a2">Average: </label><br>
+                                      <input id="a2" type="text" name="a2" value="{{ a2 }}">
+                                    </td>
+                                    <td rowspan="3">
+                                        <label for="data">Data: </label></br>
+                                        <textarea id="data" name="data" rows="7" cols="30">{{ real }}</textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="s1">Std: </label></br>
+                                        <input type="text" id="s1" name="s1" value="{{ s1 }}"><br>
+                                    </td>
+                                    <td>
+                                        <label for="s2">Std: </label></br>
+                                        <input type="text" id="s2" name="s2" value="{{ s2 }}"><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="n1">Last N: </label></br>
+                                        <input type="text" id="n1" name="n1" value="{{ n1 }}"><br><br>
+                                    </td>
+                                    <td>
+                                        <label for="n2">Last N: </label></br>
+                              <input type="text" id="n2" name="n2" value="{{ n2 }}"><br><br>
+                                    </td>
+                                </tr>
+                              <tr>
+                                  <td colspan="3"><input type="submit" value="Submit"></td>
+                              </tr>
+                        </tbody>
+                            </table>
+
+                    </section>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

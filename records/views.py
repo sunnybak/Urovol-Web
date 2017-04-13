@@ -25,6 +25,21 @@ def detail(request, pi_id):
     dataset = Data.objects.filter(pi=pi, status="valid")
     return render(request, 'records/detail.html',{'pi': pi, 'dataset':dataset})
 
+def simul(request, pi_id):
+    pi = get_object_or_404(Pi, pk=pi_id)
+    a1 = request.POST.get('a1', "50")
+    a2 = request.POST.get('a2', "50")
+    s1 = request.POST.get('s1', "9")
+    s2 = request.POST.get('s2', "9")
+    n1 = request.POST.get('n1', "6")
+    n2 = request.POST.get('n2', "6")
+    real = request.POST.get('data', "")
+
+    file = open('data.txt', 'w')
+    file.write(real)
+    file.close()
+    return render(request, 'records/simul.html',{'pi': pi,'a1':a1,'a2':a2,'s1':s1,'s2':s2,'n1':n1,'n2':n2, 'real': real })
+
 class PiCreate(generic.CreateView) :
     model = Pi
     fields = ['code', 'address']

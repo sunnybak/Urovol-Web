@@ -25,6 +25,7 @@ Device IDs
                             <td><strong>Latest Reading</strong></td>
                             <td><strong>Number of Records</strong></td>
                             <td><strong>Pi Address</strong></td>
+                            <td><strong>Simulate Session</strong></td>
                             <td><strong>Delete Session</strong></td>
 
                         </tr>
@@ -37,6 +38,15 @@ Device IDs
                                 <td>{{ pi.len }}</td>
                                 <td><a href = "{% url 'records:detail' pi.id %}" > {{  pi.address  }}</a></td>
                                 <td>
+                                    <form action="{% url 'simul' pi.id %}" style="display: inline;">
+                                        <input type="hidden" value="{{ pi.id }}" />
+                                        <button class="btn btn-default btn-sm">
+                                            <span class="glyphicon glyphicon-console"></span>
+                                        </button>
+
+                                    </form>
+                                </td>
+                                <td>
                                         <form action="{% url 'records:pi-delete' pi.id %}" method="post" style="display: inline;">
                                             {% csrf_token %}
                                             <input type="hidden" name="pi_id" value="{{ pi.id }}" />
@@ -45,6 +55,7 @@ Device IDs
                                                 </button>
                                         </form>
                                 </td>
+
 
                             </tr>
                         {% endfor %}

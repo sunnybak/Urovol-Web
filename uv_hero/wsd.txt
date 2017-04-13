@@ -1,0 +1,45 @@
+
+
+tick = 0
+last = 100000
+new = 0
+cumul = 0
+readings = []
+
+
+readings.append(datetime(), 0, last, new, cumul, "init")
+
+while nt.reset == 0:
+
+    timestamp = datetime()
+    reading = lp.get_reading()
+
+    status = "raw"
+
+    if tick % 3 == 0 and tick > 0:
+        last_six = [x[1] for x in readings[-5:]]
+        last_six.append(reading)
+        avg = np.mean(last_six)
+        std = np.std(last_six)
+        if avg > 50 and std < 9:
+            last = avg
+            new = avg - readings[-1][2]
+            if new > 0:
+                cumul += new
+            else:
+                new = 0
+            status = "valid"
+        else:
+            status = "rejected"
+
+    time = str(timestamp)[:-7]
+    vol = reading
+    last = round(last, 3)
+    new = round(new, 3)
+    cumul = round(cumul, 3)
+
+    readings.append((timestamp, vol, last, new, cumul, status))
+
+    tick += 1
+
+    sleep(3)
