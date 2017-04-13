@@ -100,7 +100,6 @@ def all_data_json(request):
 
 def real_data_json(request):
 
-    data = []
     file = open('./data.txt', 'r')
     text = file.readlines()
     data = [line.split('\t') for line in text]
