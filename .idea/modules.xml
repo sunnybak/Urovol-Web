@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../mysite/.idea/mysite.iml" filepath="$PROJECT_DIR$/../mysite/.idea/mysite.iml" />
       <module fileurl="file://$PROJECT_DIR$/../plotDjango/.idea/plotDjango.iml" filepath="$PROJECT_DIR$/../plotDjango/.idea/plotDjango.iml" />
       <module fileurl="file://$PROJECT_DIR$/../uv_data/.idea/uv_data.iml" filepath="$PROJECT_DIR$/../uv_data/.idea/uv_data.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/uv_hero.iml" filepath="$PROJECT_DIR$/.idea/uv_hero.iml" />

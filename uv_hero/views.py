@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from records.models import Data
 from django.http import HttpResponse, Http404
 import simplejson
@@ -7,7 +7,7 @@ import numpy as np
 import time, datetime
 
 def index(request):
-    return render_to_response('index.html')
+    return render(request, 'index.html')
 
 def chart_data_json(request):
 

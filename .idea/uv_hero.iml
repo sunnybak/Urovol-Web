@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="plotDjango" />
     <orderEntry type="module" module-name="uv_data" />
+    <orderEntry type="module" module-name="mysite" />
   </component>
 </module>
