@@ -72,7 +72,8 @@ def chart_data_json_new_algorithm(request):
     return HttpResponse(simplejson.dumps(data),
                         content_type='application/json')
 
-def all_data_json_change_back(request):
+
+def all_data_json_original(request):
 
     params = request.GET
 

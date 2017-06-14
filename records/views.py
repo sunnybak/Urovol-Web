@@ -29,6 +29,7 @@ def index(request):
     else:
         return HttpResponseRedirect("/records/login_user/")
 
+
 def detail(request, pi_id):
     if request.user.is_authenticated:
         pi = get_object_or_404(Pi, pk=pi_id)
@@ -36,6 +37,7 @@ def detail(request, pi_id):
         return render(request, 'records/detail.html',{'pi': pi, 'dataset':dataset})
     else:
         return HttpResponseRedirect("/records/login_user/")
+
 
 def simul(request, pi_id):
     if request.user.is_authenticated:
@@ -45,7 +47,7 @@ def simul(request, pi_id):
         s1 = request.POST.get('s1', "9")
         s2 = request.POST.get('s2', "9")
         n1 = request.POST.get('n1', "6")
-        n2 = request.POST.get('n2', "3")
+        n2 = request.POST.get('n2', "6")
         real = request.POST.get('data', "")
 
         file = open('data.txt', 'w')
@@ -55,14 +57,17 @@ def simul(request, pi_id):
     else:
         return HttpResponseRedirect("/records/login_user/")
 
+
 class PiCreate(generic.CreateView):
     model = Pi
     fields = ['code', 'address']
     # automatically sends the fields to [model]_form.html
 
+
 class PiUpdate(generic.UpdateView):
     model = Pi
     fields = ['code', 'address']
+
 
 class PiDelete(generic.DeleteView):
     model = Pi
@@ -70,7 +75,7 @@ class PiDelete(generic.DeleteView):
 
 
 # admin account:
-# username: admin
+# username: admsin
 # email: ssb2189@columbia.edu
 # pass: same as my email
 class UserFormView(View):
@@ -84,8 +89,7 @@ class UserFormView(View):
 
     # process the data
     def post(self, request):
-        form  = self.form_class(request.POST)
-
+        form = self.form_class(request.POST)
 
         if form.is_valid():
             # saving temporarily
@@ -107,6 +111,7 @@ class UserFormView(View):
                     login(request, user)
 
                     return redirect('records:index')
+
 
 def login_user(request):
     if request.method == "POST":
