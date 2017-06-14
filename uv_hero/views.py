@@ -9,13 +9,35 @@ import time, datetime
 def index(request):
     return render(request, 'index.html')
 
+# Data with the old algorithm with pre-set initial conditions
+# def chart_data_json(request):
+#
+#     params = request.GET
+#
+#     pi = params.get('pi', 0)
+#
+#     dataObjects = Data.objects.filter(pi=pi, status="valid")
+#
+#     if not dataObjects:
+#         raise Http404("Session does not exist")
+#
+#     data = []
+#
+#     for d in dataObjects:
+#         data.append([int((d.date_time * 1000) - 14400000), d.cum_vol]) # change to cum_vol
+#
+#     data = deepcopy(sorted(data, key=lambda x: x[0]))
+#
+#     return HttpResponse(simplejson.dumps(data), content_type='application/json')
+
+# raw data without processing
 def chart_data_json(request):
 
     params = request.GET
 
     pi = params.get('pi', 0)
 
-    dataObjects = Data.objects.filter(pi=pi, status="valid")
+    dataObjects = Data.objects.filter(pi=pi)
 
     if not dataObjects:
         raise Http404("Session does not exist")
@@ -23,13 +45,34 @@ def chart_data_json(request):
     data = []
 
     for d in dataObjects:
-        data.append([int((d.date_time * 1000) - 14400000), d.cum_vol]) # change to cum_vol
+        data.append([int((d.date_time * 1000) - 14400000), d.raw_vol])
 
-    data = deepcopy(sorted(data,key=lambda x: x[0]))
+    data = deepcopy(sorted(data, key=lambda x: x[0]))
 
-    return HttpResponse(simplejson.dumps(data),content_type='application/json')
+    return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
-def all_data_json(request):
+def chart_data_json_new_algorithm(request):
+
+    params = request.GET
+
+    pi = params.get('pi', 0)
+
+    dataObjects = Data.objects.filter(pi=pi)
+
+    if not dataObjects:
+        raise Http404("Session does not exist")
+
+    data = []
+
+    for d in dataObjects:
+        data.append([int((d.date_time * 1000) - 14400000), d.raw_vol])
+
+    data = deepcopy(sorted(data, key=lambda x: x[0]))
+
+    return HttpResponse(simplejson.dumps(data),
+                        content_type='application/json')
+
+def all_data_json_change_back(request):
 
     params = request.GET
 
@@ -48,7 +91,7 @@ def all_data_json(request):
     for d in dataObjects:
         data.append([int((d.date_time * 1000) - 14400000), d.raw_vol])
 
-    data = deepcopy(sorted(data,key=lambda x: x[0]))
+    data = deepcopy(sorted(data, key=lambda x: x[0]))
 
     tick = 0
     last = 100000
@@ -56,7 +99,6 @@ def all_data_json(request):
     cumul = 0
 
     readings = []
-
     readings.append((data[0][0] - 1, 0, last, new, cumul, "init"))
 
     for i in range(0,len(data)):
@@ -86,7 +128,7 @@ def all_data_json(request):
         new = round(new, 3)
         cumul = round(cumul, 3)
 
-        readings.append((timestamp, vol, last, new, round(cumul,1), status))
+        readings.append((timestamp, vol, last, new, round(cumul, 1), status))
 
         tick += 1
 
@@ -96,7 +138,84 @@ def all_data_json(request):
         if x[-1] == "valid":
             data.append([x[0],x[-2]])
 
+
     return HttpResponse(simplejson.dumps(data),content_type='application/json')
+
+
+def all_data_json(request):
+
+    params = request.GET
+
+    pi = params.get('pi', 0)
+    AVG = int(params.get('AVG', "50"))
+    STD = int(params.get('STD', "9"))
+    lastN = int(params.get('lN', "6"))
+
+    dataObjects = Data.objects.filter(pi=pi)
+
+    if not dataObjects:
+        raise Http404("Session does not exist")
+
+    data = []
+
+    for d in dataObjects:
+        data.append([int((d.date_time * 1000) - 14400000), d.raw_vol])
+
+    data = deepcopy(sorted(data, key=lambda x: x[0]))
+
+    tick = 0
+    last = 100000
+    new = 0
+    cumul = 0
+
+    readings = []
+    readings.append((data[0][0] - 1, 0, last, new, cumul, "init"))
+
+    for i in range(0, len(data)):
+        timestamp = data[i][0]
+        reading = data[i][1]
+        status = "raw"
+
+        if tick > 0:
+            last_ten = [x[1] for x in readings[-6:]]
+
+            last_ten.append(reading)
+            avg = float(np.mean(last_ten))
+            std = float(np.std(last_ten))
+
+            if avg > AVG and std < STD:
+                last = avg
+                new = avg - readings[-1][2]
+                # prev = readings[-1][2]
+                if cumul + new < 0 or abs(new) > 30:
+                    new = 0
+                    status = "rejected"
+                else:
+                    status = "valid"
+                if new > 0:
+                    new *= 0.9
+                cumul += new
+            else:
+                status = "rejected"
+
+
+        vol = reading
+        last = round(last, 3)
+        new = round(new, 3)
+        cumul = round(cumul, 3)
+
+        readings.append((timestamp, vol, last, new, round(cumul, 1), status))
+
+        tick += 1
+
+    data = deepcopy([])
+
+    for x in readings:
+        if x[-1] == "valid":
+            data.append([x[0],x[-2]])
+
+
+    return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
 def real_data_json(request):
 
