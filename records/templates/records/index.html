@@ -22,8 +22,8 @@ Device IDs
                         <thead>
                         <tr align="center">
                             <td><strong>Session</strong></td>
-                            <td><strong>Latest Reading</strong></td>
-                            <td><strong>Number of Records</strong></td>
+                            <!--<td><strong>Latest Reading</strong></td>-->
+                            <!--<td><strong>Number of Records</strong></td>-->
                             <td><strong>Pi Address</strong></td>
                             <td><strong>Simulate Session</strong></td>
                             <td><strong>Delete Session</strong></td>
@@ -34,8 +34,8 @@ Device IDs
                         {% for pi in allpi %}
                             <tr align="center">
                                 <td><a href = "{% url 'records:detail' pi.id %}" > {{  pi.code  }}</a></td>
-                                <td>{{ pi.latest }}</td>
-                                <td>{{ pi.len }}</td>
+                                <!--<td>{{ pi.latest }}</td>-->
+                                <!--<td>{{ pi.len }}</td>-->
                                 <td><a href = "{% url 'records:detail' pi.id %}" > {{  pi.address  }}</a></td>
                                 <td>
                                     <form action="{% url 'simul' pi.id %}" style="display: inline;">
