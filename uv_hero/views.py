@@ -30,6 +30,7 @@ def index(request):
 #
 #     return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
+
 # raw data without processing
 def chart_data_json(request):
 
@@ -164,7 +165,6 @@ def all_data_json(request):
 
     data = deepcopy(sorted(data, key=lambda x: x[0]))
 
-    tick = 0
     last = 100000
     new = 0
     cumul = 0
@@ -172,32 +172,52 @@ def all_data_json(request):
     readings = []
     readings.append((data[0][0] - 1, 0, last, new, cumul, "init"))
 
-    for i in range(0, len(data)):
+
+    for i in range(5, len(data)):
         timestamp = data[i][0]
         reading = data[i][1]
         status = "raw"
 
-        if tick > 0:
-            last_ten = [x[1] for x in readings[-6:]]
+        # last_ten = [x[1] for x in readings[-5:]]
+        # last_ten.append(reading)
+        # avg = float(np.mean(last_ten))
+        # std = float(np.std(last_ten))
 
-            last_ten.append(reading)
-            avg = float(np.mean(last_ten))
-            std = float(np.std(last_ten))
+        last_six = [x[1] for x in readings[-6:]]
+        last_six.append(reading)
+        last = float(np.mean(last_six))
+        std = float(np.std(last_six))
 
-            if avg > AVG and std < STD:
-                last = avg
-                new = avg - readings[-1][2]
-                # prev = readings[-1][2]
-                if cumul + new < 0 or abs(new) > 30:
-                    new = 0
-                    status = "rejected"
-                else:
-                    status = "valid"
-                if new > 0:
-                    new *= 0.9
-                cumul += new
+        # if avg > AVG and std < STD:
+        #     last = avg
+        #     new = avg - readings[-1][2]
+        #     # prev = readings[-1][2]
+        #     if cumul + new < 0 or abs(new) > 30:
+        #         new = 0
+        #         status = "rejected"
+        #     else:
+        #         status = "valid"
+        #     if new > 0:
+        #         new *= 0.9
+        #     cumul += new
+        # else:
+        #     status = "rejected"
+
+        if last > 50 and std < 5:
+            if abs(last - readings[-1][2]) > 10:
+                new = 0
             else:
-                status = "rejected"
+                new = (last - readings[-1][2])*0.8
+
+            # if cumul + new < 0:
+            #     new = 0
+
+            cumul += new
+            status = "valid"
+        else:
+            status = "rejected"
+            cumul = readings[-1][4]
+            new = 0
 
 
         vol = reading
@@ -207,13 +227,11 @@ def all_data_json(request):
 
         readings.append((timestamp, vol, last, new, round(cumul, 1), status))
 
-        tick += 1
-
     data = deepcopy([])
 
     for x in readings:
         if x[-1] == "valid":
-            data.append([x[0],x[-2]])
+            data.append([x[0], x[-2]])
 
 
     return HttpResponse(simplejson.dumps(data), content_type='application/json')

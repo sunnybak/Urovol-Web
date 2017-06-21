@@ -13,19 +13,21 @@ def index(request):
     if request.user.is_authenticated:
         class piIndex(object):
             def __init__(self, pi):
-                data = Data.objects.filter(pi=pi, status="valid")
                 self.id = pi.id
                 self.code = pi.code
                 self.address = pi.address
-                self.len = len(data)
-                if self.len != 0:
-                    self.latest = max(data, key=lambda d: d.date_time)
-                else:
-                    self.latest = "N/A"
+                # data = Data.objects.filter(pi=pi, status="valid")
+                # self.len = len(data)
+                # if self.len != 0:
+                #     self.latest = max(data, key=lambda d: d.date_time)
+                # else:
+                #     self.latest = "N/A"
+                self.len = ""
+                self.latest = ""
         all = []
         for pi in Pi.objects.all()[::-1]:
             all.append(piIndex(pi))
-        return render(request, 'records/index.html', {'allpi': all })
+        return render(request, 'records/index.html', {'allpi': all})
     else:
         return HttpResponseRedirect("/records/login_user/")
 
