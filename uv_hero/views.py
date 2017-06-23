@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from records.models import Data
+from records.models import Data, Pi
 from django.http import HttpResponse, Http404
 import simplejson
 from copy import deepcopy
 import numpy as np
+import csv
 import time, datetime
 
 def index(request):
@@ -32,6 +33,7 @@ def index(request):
 
 
 # raw data without processing
+
 def chart_data_json(request):
 
     params = request.GET
@@ -52,28 +54,8 @@ def chart_data_json(request):
 
     return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
-def chart_data_json_new_algorithm(request):
 
-    params = request.GET
-
-    pi = params.get('pi', 0)
-
-    dataObjects = Data.objects.filter(pi=pi)
-
-    if not dataObjects:
-        raise Http404("Session does not exist")
-
-    data = []
-
-    for d in dataObjects:
-        data.append([int((d.date_time * 1000) - 14400000), d.raw_vol])
-
-    data = deepcopy(sorted(data, key=lambda x: x[0]))
-
-    return HttpResponse(simplejson.dumps(data),
-                        content_type='application/json')
-
-
+# the original algorithm
 def all_data_json_original(request):
 
     params = request.GET
@@ -144,6 +126,7 @@ def all_data_json_original(request):
     return HttpResponse(simplejson.dumps(data),content_type='application/json')
 
 
+# the new algorithm
 def all_data_json(request):
 
     params = request.GET
@@ -233,9 +216,12 @@ def all_data_json(request):
         if x[-1] == "valid":
             data.append([x[0], x[-2]])
 
+    csv_sections(readings, threshold=50, session=pi)
 
     return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
+
+# real data upload
 def real_data_json(request):
 
     file = open('./data.txt', 'r')
@@ -247,3 +233,41 @@ def real_data_json(request):
             info.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple())*1000, round(float(d[-2]), 1)])
 
     return HttpResponse(simplejson.dumps(info),content_type='application/json')
+
+
+# create CSV sections based on gradient spikes
+def csv_sections(readings, threshold, session):
+
+    import shutil, os, csv
+    shutil.rmtree('/Users/shikhar/dev/uv_hero/Sections/')
+    session = str(Pi.objects.filter(id=session)[0].code)
+
+    os.makedirs('Sections')
+    os.makedirs('Sections/'+session)
+
+    secCounter = 0
+    prev = 0
+
+    csvfile = open('Sections/'+session+'/section_0.csv', 'w', newline='')
+    writer = csv.writer(csvfile)
+    writer.writerow(['Timestamp', 'Raw Volume', 'Nurse Volume', 'Grad'])
+    csvfile.close()
+    csvfile = open('Sections/'+session+'/section_0.csv', 'a', newline='')
+    writer = csv.writer(csvfile)
+
+    for x in readings:
+        if x[-1] == "valid":
+            if abs(x[1] - prev) < threshold:
+                writer.writerow([x[0], x[1], 0, x[1] - prev])
+            else:
+                secCounter += 1
+                csvfile = open('Sections/'+session+'/section_' + str(secCounter) + '.csv',
+                               'w', newline='')
+                writer = csv.writer(csvfile)
+                writer.writerow(['Timestamp', 'Raw Volume', 'Nurse Volume', 'Grad'])
+                csvfile.close()
+                csvfile = open('Sections/'+session+'/section_' + str(secCounter) + '.csv',
+                               'a', newline='')
+                writer = csv.writer(csvfile)
+            prev = x[1]
+    csvfile.close()
