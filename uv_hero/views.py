@@ -4,7 +4,6 @@ from django.http import HttpResponse, Http404
 import simplejson
 from copy import deepcopy
 import numpy as np
-import csv
 import time, datetime
 
 def index(request):
@@ -132,9 +131,6 @@ def all_data_json(request):
     params = request.GET
 
     pi = params.get('pi', 0)
-    AVG = int(params.get('AVG', "50"))
-    STD = int(params.get('STD', "9"))
-    lastN = int(params.get('lN', "6"))
 
     dataObjects = Data.objects.filter(pi=pi)
 
@@ -159,7 +155,6 @@ def all_data_json(request):
     for i in range(5, len(data)):
         timestamp = data[i][0]
         reading = data[i][1]
-        status = "raw"
 
         # last_ten = [x[1] for x in readings[-5:]]
         # last_ten.append(reading)
@@ -216,7 +211,7 @@ def all_data_json(request):
         if x[-1] == "valid":
             data.append([x[0], x[-2]])
 
-    csv_sections(readings, threshold=50, session=pi)
+    csv_sections(threshold=50)
 
     return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
@@ -236,38 +231,99 @@ def real_data_json(request):
 
 
 # create CSV sections based on gradient spikes
-def csv_sections(readings, threshold, session):
+def csv_sections(threshold):
 
-    import shutil, os, csv
+    import shutil, os, csv, glob, xlrd
     shutil.rmtree('/Users/shikhar/dev/uv_hero/Sections/')
-    session = str(Pi.objects.filter(id=session)[0].code)
-
     os.makedirs('Sections')
-    os.makedirs('Sections/'+session)
+    print('starting glob')
 
-    secCounter = 0
-    prev = 0
+    piObjects = Pi.objects.all()
+    error = ''
+    for pi in piObjects:
+        # create a folder by the session name
+        for fileName in glob.glob('Combined/*.xls'):
+            # There is a match. Start CSV creation
+            if pi.code in fileName:
 
-    csvfile = open('Sections/'+session+'/section_0.csv', 'w', newline='')
-    writer = csv.writer(csvfile)
-    writer.writerow(['Timestamp', 'Raw Volume', 'Nurse Volume', 'Grad'])
-    csvfile.close()
-    csvfile = open('Sections/'+session+'/section_0.csv', 'a', newline='')
-    writer = csv.writer(csvfile)
-
-    for x in readings:
-        if x[-1] == "valid":
-            if abs(x[1] - prev) < threshold:
-                writer.writerow([x[0], x[1], 0, x[1] - prev])
-            else:
-                secCounter += 1
-                csvfile = open('Sections/'+session+'/section_' + str(secCounter) + '.csv',
-                               'w', newline='')
+                # initializations
+                os.makedirs('Sections/' + pi.code)
+                secCounter = 0
+                csvfile = open('Sections/' + pi.code + '/section_0.csv', 'w',
+                               newline='')
                 writer = csv.writer(csvfile)
-                writer.writerow(['Timestamp', 'Raw Volume', 'Nurse Volume', 'Grad'])
+                writer.writerow(
+                    ['Timestamp', 'Raw Volume', 'Manual Volume', 'Grad'])
                 csvfile.close()
-                csvfile = open('Sections/'+session+'/section_' + str(secCounter) + '.csv',
-                               'a', newline='')
+                csvfile = open('Sections/' + pi.code + '/section_0.csv', 'a',
+                               newline='')
                 writer = csv.writer(csvfile)
-            prev = x[1]
-    csvfile.close()
+
+                all_data = []
+
+                # getting the raw data
+                all_data.extend([[float(x.date_time), float(x.raw_vol), 'RAW'] for x in Data.objects.filter(pi=pi.id)])
+
+                # getting the processed data
+                # all_data.extend([[x.date_time, x.raw_vol, 'PROC'] for x in Data.objects.filter(pi=pi.id, status='valid')])
+
+
+                # getting the manual data
+                print('Found:' + fileName)
+                xl_workbook = xlrd.open_workbook(fileName)
+                xl_sheet = xl_workbook.sheet_by_index(0)
+                numReadings = xl_sheet.col_values(5).index('', 3)
+                times = xl_sheet.col_values(4)[3:numReadings:]
+                times = [int((x-25569)*86400) for x in times]
+                man_cum = xl_sheet.col_values(5)[3:numReadings:]
+                all_data.extend([[times[i], float(man_cum[i]), 'MAN'] for i in range(0, len(times))])
+
+                # sorting data chronologically
+                all_data = deepcopy(sorted(all_data, key=lambda x: x[0]))
+
+                prev = 0.0
+                writen = False
+
+                for x in all_data:
+                    if x[2] == 'RAW':
+                        if abs(x[1] - prev) < threshold:
+                            writer.writerow(x)
+                            writen = True
+                        else:
+                            if writen:
+                                csvfile.close()
+                                secCounter += 1
+                                print('\tStarting section', secCounter)
+                                csvfile = open(
+                                    'Sections/' + pi.code + '/section_' + str(
+                                        secCounter) + '.csv',
+                                    'w', newline='')
+                                writer = csv.writer(csvfile)
+                                writer.writerow(
+                                    ['Timestamp', 'Volume', 'Type'])
+                                csvfile.close()
+                                csvfile = open(
+                                    'Sections/' + pi.code + '/section_' + str(
+                                        secCounter) + '.csv',
+                                    'a', newline='')
+                                writer = csv.writer(csvfile)
+                                writen = False
+                        prev = x[1]
+                    else:
+                        writer.writerow(x)
+                csvfile.close()
+                break
+        else:
+            error += 'error: ' + pi.code + ' on database but not offline \n'
+    print(error)
+
+
+
+
+
+
+
+
+
+
+
