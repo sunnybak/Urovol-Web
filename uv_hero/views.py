@@ -51,6 +51,8 @@ def chart_data_json(request):
 
     data = deepcopy(sorted(data, key=lambda x: x[0]))
 
+    data = []
+
     return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
 
@@ -119,15 +121,12 @@ def all_data_json_original(request):
 
     for x in readings:
         if x[-1] == "valid":
-            data.append([x[0],x[-2]])
+            data.append([x[0], x[-2]])
 
-
-    return HttpResponse(simplejson.dumps(data),content_type='application/json')
-
+    return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
 # the new algorithm
 def all_data_json(request):
-
     params = request.GET
 
     pi = params.get('pi', 0)
@@ -185,10 +184,7 @@ def all_data_json(request):
             if abs(last - readings[-1][2]) > 10:
                 new = 0
             else:
-                new = (last - readings[-1][2])*0.8
-
-            # if cumul + new < 0:
-            #     new = 0
+                new = (last - readings[-1][2])*1.2
 
             cumul += new
             status = "valid"
@@ -197,10 +193,11 @@ def all_data_json(request):
             cumul = readings[-1][4]
             new = 0
 
-
         vol = reading
         last = round(last, 3)
         new = round(new, 3)
+        if cumul < 0:
+            cumul = 0
         cumul = round(cumul, 3)
 
         readings.append((timestamp, vol, last, new, round(cumul, 1), status))
@@ -211,12 +208,10 @@ def all_data_json(request):
         if x[-1] == "valid":
             data.append([x[0], x[-2]])
 
-    csv_sections(threshold=50)
-
     return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
 
-# real data upload
+# real data upload`
 def real_data_json(request):
 
     file = open('./data.txt', 'r')
@@ -224,103 +219,9 @@ def real_data_json(request):
     data = [line.split('\t') for line in text]
     info = []
     for d in data:
-        if "valid" in d[-1]:
-            info.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple())*1000, round(float(d[-2]), 1)])
+        info.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple())*1000, round(float(d[-1].replace('\n', '')), 1)])
 
-    return HttpResponse(simplejson.dumps(info),content_type='application/json')
-
-
-# create CSV sections based on gradient spikes
-def csv_sections(threshold):
-
-    import shutil, os, csv, glob, xlrd
-    shutil.rmtree('/Users/shikhar/dev/uv_hero/Sections/')
-    os.makedirs('Sections')
-    print('starting glob')
-
-    piObjects = Pi.objects.all()
-    error = ''
-    for pi in piObjects:
-        # create a folder by the session name
-        for fileName in glob.glob('Combined/*.xls'):
-            # There is a match. Start CSV creation
-            if pi.code in fileName:
-
-                # initializations
-                os.makedirs('Sections/' + pi.code)
-                secCounter = 0
-                csvfile = open('Sections/' + pi.code + '/section_0.csv', 'w',
-                               newline='')
-                writer = csv.writer(csvfile)
-                writer.writerow(
-                    ['Timestamp', 'Raw Volume', 'Manual Volume', 'Grad'])
-                csvfile.close()
-                csvfile = open('Sections/' + pi.code + '/section_0.csv', 'a',
-                               newline='')
-                writer = csv.writer(csvfile)
-
-                all_data = []
-
-                # getting the raw data
-                all_data.extend([[float(x.date_time), float(x.raw_vol), 'RAW'] for x in Data.objects.filter(pi=pi.id)])
-
-                # getting the processed data
-                # all_data.extend([[x.date_time, x.raw_vol, 'PROC'] for x in Data.objects.filter(pi=pi.id, status='valid')])
-
-
-                # getting the manual data
-                print('Found:' + fileName)
-                xl_workbook = xlrd.open_workbook(fileName)
-                xl_sheet = xl_workbook.sheet_by_index(0)
-                numReadings = xl_sheet.col_values(5).index('', 3)
-                times = xl_sheet.col_values(4)[3:numReadings:]
-                times = [int((x-25569)*86400) for x in times]
-                man_cum = xl_sheet.col_values(5)[3:numReadings:]
-                all_data.extend([[times[i], float(man_cum[i]), 'MAN'] for i in range(0, len(times))])
-
-                # sorting data chronologically
-                all_data = deepcopy(sorted(all_data, key=lambda x: x[0]))
-
-                prev = 0.0
-                writen = False
-
-                for x in all_data:
-                    if x[2] == 'RAW':
-                        if abs(x[1] - prev) < threshold:
-                            writer.writerow(x)
-                            writen = True
-                        else:
-                            if writen:
-                                csvfile.close()
-                                secCounter += 1
-                                print('\tStarting section', secCounter)
-                                csvfile = open(
-                                    'Sections/' + pi.code + '/section_' + str(
-                                        secCounter) + '.csv',
-                                    'w', newline='')
-                                writer = csv.writer(csvfile)
-                                writer.writerow(
-                                    ['Timestamp', 'Volume', 'Type'])
-                                csvfile.close()
-                                csvfile = open(
-                                    'Sections/' + pi.code + '/section_' + str(
-                                        secCounter) + '.csv',
-                                    'a', newline='')
-                                writer = csv.writer(csvfile)
-                                writen = False
-                        prev = x[1]
-                    else:
-                        writer.writerow(x)
-                csvfile.close()
-                break
-        else:
-            error += 'error: ' + pi.code + ' on database but not offline \n'
-    print(error)
-
-
-
-
-
+    return HttpResponse(simplejson.dumps(info), content_type='application/json')
 
 
 

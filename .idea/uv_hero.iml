@@ -4,8 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.5.2 (/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="plotDjango" />
     <orderEntry type="module" module-name="uv_data" />
     <orderEntry type="module" module-name="mysite" />
+    <orderEntry type="module" module-name="Misc" />
   </component>
 </module>

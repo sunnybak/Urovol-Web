@@ -18,97 +18,114 @@ ${demo.css}
             names = ['Website', 'Simulated', 'Real Data'];
             var urls = [graph1, graph2, graph3];
 
-                function createChart() {
-                    // Create the chart
+            function createChart() {
+                // Create the chart
 
-                    Highcharts.stockChart('container', {
+                var dataJson = {
 
+                    title: {
+                        text: 'Patient Data'
+                    },
 
-                        title: {
-                            text: 'Patient Data'
-                        },
+                    credits: {
+                        enabled: false
+                    },
 
-                        credits: {
-                            enabled: false
-                        },
-
-                        rangeSelector: {
-                            enabled: true,
-                            allButtonsEnabled: true,
-
-                            buttons: [{
-                                type: 'minute',
-                                count: 30,
-                                text: 'min'
-                            }, {
-                                type: 'hour',
-                                count: 1,
-                                text: 'hr'
-                            }, {
-                                type: 'day',
-                                count: 1,
-                                text: 'd'
-                            }, {
-                                type: 'day',
-                                count: 2,
-                                text: '2d'
-                            }, {
-                                type: 'week',
-                                count: 1,
-                                text: 'wk'
-                            }, {
-                                type: 'month',
-                                count: 1,
-                                text: 'mon'
-                            }, {
-                                type: 'all',
-                                text: 'All'
-                            }],
-                            selected: 6
-                        },
-
-                        xAxis: {
-                            title: {
-                                text: 'Date/Time'
+                    plotOptions: {
+                        line: {
+                            allowPointSelect: true,
+                            dataLabels: {
+                                enabled: false
                             }
-                        },
-
-                        yAxis: {
-                            title: {
-                                text: 'Volume'
-                            }
-                        },
-
-                        tooltip: {
-                            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
-                            valueDecimals: 2,
-                            split: true,
-                            valueSuffix: 'ml'
-                        },
-
-                        series: seriesOptions
-
-                    });
-            }
-            var n = -1;
-                $.each(names, function (i, name) {
-                    n += 1;
-                    $.getJSON(urls[n], function (data) {
-
-                        seriesOptions[i] = {
-                            name: name,
-                            data: data
-                        };
-
-                        // As we're loading the data asynchronously, we don't know what order it will arrive. So
-                        // we keep a counter and create the chart when all the data is loaded.
-                        seriesCounter += 1;
-
-                        if (seriesCounter === names.length) {
-                            createChart();
                         }
+                    },
 
-                    });
+
+                    rangeSelector: {
+                        enabled: true,
+                        allButtonsEnabled: true,
+
+                        buttons: [{
+                            type: 'minute',
+                            count: 30,
+                            text: 'min'
+                        }, {
+                            type: 'hour',
+                            count: 1,
+                            text: 'hr'
+                        }, {
+                            type: 'day',
+                            count: 1,
+                            text: 'd'
+                        }, {
+                            type: 'day',
+                            count: 2,
+                            text: '2d'
+                        }, {
+                            type: 'week',
+                            count: 1,
+                            text: 'wk'
+                        }, {
+                            type: 'month',
+                            count: 1,
+                            text: 'mon'
+                        }, {
+                            type: 'all',
+                            text: 'All'
+                        }],
+                        selected: 6
+                    },
+
+                    xAxis: {
+                        title: {
+                            text: 'Date/Time'
+                        }
+                    },
+
+                    yAxis: {
+                        title: {
+                            text: 'Volume'
+                        }
+                    },
+
+                    tooltip: {
+                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+                        valueDecimals: 2,
+                        split: true,
+                        valueSuffix: 'ml'
+                    },
+
+                    series: seriesOptions
+
+                };
+
+//                if(whichChart === "Simulated") {
+//                    delete dataJson["plotOptions"];
+//                }
+
+                Highcharts.stockChart('container', dataJson);
+            }
+
+            var n = -1;
+
+            $.each(names, function (i, name) {
+                n += 1;
+                $.getJSON(urls[n], function (data) {
+
+                    seriesOptions[i] = {
+                        name: name,
+                        data: data
+                    };
+
+                    // As we're loading the data asynchronously, we don't know what order it will arrive. So
+                    // we keep a counter and create the chart when all the data is loaded.
+                    seriesCounter += 1;
+
+                    if (seriesCounter === names.length) {
+                        createChart();
+                    }
+
+                });
             });
 		</script>
 
@@ -124,7 +141,7 @@ ${demo.css}
 
 
 {% block title %}
-Patient Data
+Simulation {{ pi.code }}
 {% endblock %}
 
 
@@ -180,6 +197,7 @@ Patient Data
                                     </td>
                                     <td rowspan="3">
                                         <label for="data">Copy and Paste Excel Cells: </label></br>
+                                        {% csrf_token %}
                                         <textarea id="data" name="data" rows="7" cols="30">{{ real }}</textarea>
                                     </td>
                                 </tr>
