@@ -45,7 +45,7 @@ def simul(request, pi_id):
     if request.user.is_authenticated:
         pi = get_object_or_404(Pi, pk=pi_id)
         a1 = request.POST.get('a1', "50")
-        a2 = request.POST.get('a2', "50")
+        a2 = request.POST.get('a2', "1")
         s1 = request.POST.get('s1', "9")
         s2 = request.POST.get('s2', "9")
         n1 = request.POST.get('n1', "6")

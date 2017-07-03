@@ -130,6 +130,9 @@ def all_data_json(request):
     params = request.GET
 
     pi = params.get('pi', 0)
+    MUL = float(params.get('AVG', "1"))
+    STD = int(params.get('STD', "9"))
+    lastN = int(params.get('lN', "6"))
 
     dataObjects = Data.objects.filter(pi=pi)
 
@@ -184,7 +187,7 @@ def all_data_json(request):
             if abs(last - readings[-1][2]) > 10:
                 new = 0
             else:
-                new = (last - readings[-1][2])*1.2
+                new = (last - readings[-1][2])*MUL
 
             cumul += new
             status = "valid"
