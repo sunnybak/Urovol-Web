@@ -51,8 +51,6 @@ def chart_data_json(request):
 
     data = deepcopy(sorted(data, key=lambda x: x[0]))
 
-    data = []
-
     return HttpResponse(simplejson.dumps(data), content_type='application/json')
 
 
@@ -167,21 +165,6 @@ def all_data_json(request):
         last_six.append(reading)
         last = float(np.mean(last_six))
         std = float(np.std(last_six))
-
-        # if avg > AVG and std < STD:
-        #     last = avg
-        #     new = avg - readings[-1][2]
-        #     # prev = readings[-1][2]
-        #     if cumul + new < 0 or abs(new) > 30:
-        #         new = 0
-        #         status = "rejected"
-        #     else:
-        #         status = "valid"
-        #     if new > 0:
-        #         new *= 0.9
-        #     cumul += new
-        # else:
-        #     status = "rejected"
 
         if last > 50 and std < 5:
             if abs(last - readings[-1][2]) > 10:
