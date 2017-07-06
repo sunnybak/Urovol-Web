@@ -9,9 +9,9 @@
 ${demo.css}
 		</style>
 		<script type="text/javascript">
-//            var graph1 = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
-            var graph1 = "{% url 'chart_data_json' %}?pi=322";
-            var graph2 = "{% url 'all_data_json' %}?pi={{ pi.pk }}&AVG={{a2}}&STD={{s2}}&lN={{n2}}";
+            var graph1 = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
+//            var graph1 = "{% url 'chart_data_json' %}?pi=322";
+            var graph2 = "{% url 'all_data_json' %}?pi={{ pi.pk }}&AVG={{a2}}&STD={{s2}}&lN={{n2}}&MIN={{m1}}&MAX={{m2}}";
             var graph3 = "{% url 'real_data_json' %}";
 
             var seriesOptions = [],
@@ -193,13 +193,13 @@ Simulation {{ pi.code }}
                                       <!--<input id="a1" type="text" name="a1" value="{{ a1 }}">-->
                                     </td>
                                     <td>
-                                        <label for="a2">Multiplier: </label><br>
+                                        <label for="a2">Average Theshold: </label><br>
                                       <input id="a2" type="text" name="a2" value="{{ a2 }}">
                                     </td>
-                                    <td rowspan="3">
+                                    <td rowspan="5">
                                         <label for="data">Copy and Paste Excel Cells: </label></br>
                                         {% csrf_token %}
-                                        <textarea id="data" name="data" rows="7" cols="30">{{ real }}</textarea>
+                                        <textarea id="data" name="data" rows="17" cols="30">{{ real }}</textarea>
                                     </td>
                                 </tr>
                                 <tr>
@@ -222,7 +222,19 @@ Simulation {{ pi.code }}
                               <input type="text" id="n2" name="n2" value="{{ n2 }}"><br><br>
                                     </td>
                                 </tr>
-                              <tr>
+                              <tr><td></td>
+                                 <td>
+                                    <label for="m1">Min Difference: </label></br>
+                          <input type="text" id="m1" name="m1" value="{{ m1 }}"><br><br>
+                                </td>
+                              </tr>
+                              <tr><td></td>
+                                  <td>
+                                        <label for="m2">Max Difference: </label></br>
+                              <input type="text" id="m2" name="m2" value="{{ m2 }}"><br><br>
+                                    </td>
+                              </tr>
+                               <tr>
                                   <td colspan="3"><input type="submit" value="Submit"></td>
                               </tr>
                         </tbody>

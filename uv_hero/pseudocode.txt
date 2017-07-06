@@ -1,0 +1,5 @@
+raw: volume from sensor
+processed: "valid" cumulative volume
+avg: average of the last N raw volumes (both valid and invalid)
+
+
