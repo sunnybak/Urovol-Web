@@ -112,13 +112,15 @@ ${demo.css}
                             name: name,
                             data: data
                         };
-                    // As we're loading the data asynchronously, we don't know what order it will arrive. So
-                    // we keep a counter and create the chart when all the data is loaded.
-                    seriesCounter += 1;
+                        // As we're loading the data asynchronously, we don't know what order it will arrive. So
+                        // we keep a counter and create the chart when all the data is loaded.
+                        seriesCounter += 1;
 
-                    if (seriesCounter === names.length) {
-                        createChart();
-                    }
+                        if (seriesCounter === names.length) {
+                            createChart();
+                        }
+
+                        console.log("Printing the graph: " + name);
                     });
                 } else {
                     seriesOptions[i] = {
@@ -137,6 +139,8 @@ ${demo.css}
                     if (seriesCounter === names.length) {
                         createChart();
                     }
+
+                    console.log("Printing the graph: " + name);
                 }
             });
 		</script>

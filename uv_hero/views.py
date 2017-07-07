@@ -55,26 +55,4 @@ def all_data_json(request):
     return HttpResponse(simplejson.dumps(processed_array), content_type='application/json')
 
 
-# real data upload
-def real_data_json(request):
-
-    file = open('./data.txt', 'r')
-    text = file.readlines()
-    data = [line.split('\t') for line in text]
-    info = []
-    for d in data:
-        info.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple())*1000,
-                     round(float(d[-1].replace('\n', '')), 1)])
-    return HttpResponse(simplejson.dumps(info), content_type='application/json')
-
-def real_post(request):
-    print(request.POST)
-
-    return HttpResponse(str(request.POST))
-
-
-
-
-
-
 

@@ -53,14 +53,19 @@ def simul(request, pi_id):
         m1 = request.POST.get('m1', "-10")
         m2 = request.POST.get('m2', "10000")
         real = request.POST.get('data', "")
-        # file = open('data.txt', 'w')
+
         data = [line.split('\t') for line in real.split('\n')]
         times = []
         for d in data:
-            times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple()) * 1000,
+            try:
+                times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple()) * 1000,
                          round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
-        # file.write(real)
-        # file.close()
+            except ValueError:
+                if '/' in d[0]:
+                    times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y").timetuple()) * 1000,
+                                  round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
+                else:
+                    pass
         return render(request, 'records/simul.html', {'pi': pi,'a1':a1,'a2':a2,'s1':s1,'s2':s2,'n1':n1,'n2':n2,
                                                      'm1':m1, 'm2':m2, 'real': real, 'times':str(times)})
     else:
