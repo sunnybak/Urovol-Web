@@ -39,7 +39,7 @@ def detail(request, pi_id):
         return render(request, 'records/detail.html', {'pi': pi, 'dataset':dataset})
     else:
         return HttpResponseRedirect("/records/login_user/")
-
+import time, datetime
 
 def simul(request, pi_id):
     if request.user.is_authenticated:
@@ -53,12 +53,16 @@ def simul(request, pi_id):
         m1 = request.POST.get('m1', "-10")
         m2 = request.POST.get('m2', "10000")
         real = request.POST.get('data', "")
-        print(request.POST)
-        file = open('data.txt', 'w')
-        file.write(real)
-        file.close()
+        # file = open('data.txt', 'w')
+        data = [line.split('\t') for line in real.split('\n')]
+        times = []
+        for d in data:
+            times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple()) * 1000,
+                         round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
+        # file.write(real)
+        # file.close()
         return render(request, 'records/simul.html', {'pi': pi,'a1':a1,'a2':a2,'s1':s1,'s2':s2,'n1':n1,'n2':n2,
-                                                     'm1':m1, 'm2':m2, 'real': real})
+                                                     'm1':m1, 'm2':m2, 'real': real, 'times':str(times)})
     else:
         return HttpResponseRedirect("/records/login_user/")
 

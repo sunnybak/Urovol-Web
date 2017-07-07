@@ -38,10 +38,11 @@ def params(request):
     return alg(getData(pi), (AVG, STD, LASTN, DIFF_MIN, DIFF_MAX))
 
 
-# raw data without processing
+# blue graph
 def chart_data_json(request):
 
-    processed_array = params(request)
+    # processed_array = params(request)
+    processed_array = getData(request.GET.get('pi', 0))
 
     return HttpResponse(simplejson.dumps(processed_array), content_type='application/json')
 
@@ -64,8 +65,13 @@ def real_data_json(request):
     for d in data:
         info.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple())*1000,
                      round(float(d[-1].replace('\n', '')), 1)])
-
     return HttpResponse(simplejson.dumps(info), content_type='application/json')
+
+def real_post(request):
+    print(request.POST)
+
+    return HttpResponse(str(request.POST))
+
 
 
 
