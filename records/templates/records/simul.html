@@ -10,6 +10,7 @@ ${demo.css}
 		</style>
 		<script type="text/javascript">
             var graph1 = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
+
 //            var graph1 = "{% url 'chart_data_json' %}?pi=322";
             var graph2 = "{% url 'all_data_json' %}?pi={{ pi.pk }}&AVG={{a2}}&STD={{s2}}&lN={{n2}}&MIN={{m1}}&MAX={{m2}}";
             var graph3 = "{% url 'real_data_json' %}";

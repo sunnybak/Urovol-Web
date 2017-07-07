@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^fetch/', views.chart_data_json, name='chart_data_json'),
     url(r'^all/', views.all_data_json, name='all_data_json'),
     url(r'^real/', views.real_data_json, name='real_data_json'),
+    # url(r'^area/', views.area, name='area'),
 ]
 

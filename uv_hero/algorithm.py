@@ -4,12 +4,6 @@ from copy import deepcopy
 
 def alg(data, params):
 
-    # LASTN = 6
-    # AVG = 50
-    # STD = 5
-    # DIFF_MIN = -10
-    # DIFF_MAX = 100000
-
     AVG, STD, LASTN, DIFF_MIN, DIFF_MAX = params
 
     prev_avg = 100000
@@ -35,3 +29,4 @@ def alg(data, params):
             prev_avg = avg
 
     return deepcopy(processed_array)
+

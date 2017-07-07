@@ -5,11 +5,12 @@ import simplejson
 from copy import deepcopy
 import numpy as np
 import time, datetime
-from .algorithm import alg
+from .algorithm import *
 
 
 def index(request):
     return render(request, 'index.html')
+
 
 def getData(pi):
 
@@ -25,10 +26,11 @@ def getData(pi):
 
     return deepcopy(sorted(data, key=lambda x: x[0]))
 
+
 def params(request):
     params = request.GET
     pi = params.get('pi', 0)
-    AVG = float(params.get('AVG', "1"))
+    AVG = float(params.get('AVG', "50"))
     STD = int(params.get('STD', "9"))
     LASTN = int(params.get('lN', "6"))
     DIFF_MIN = int(params.get('MIN', "-10"))

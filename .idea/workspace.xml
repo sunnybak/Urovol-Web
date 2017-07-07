@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e68cae1-bf01-47b0-9d38-5917201aac8f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uv_hero/algorithm.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uv_hero/pseudocode.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data.txt" afterPath="$PROJECT_DIR$/data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/templates/records/simul.html" afterPath="$PROJECT_DIR$/records/templates/records/simul.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/records/views.py" afterPath="$PROJECT_DIR$/records/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uv_hero/algorithm.py" afterPath="$PROJECT_DIR$/uv_hero/algorithm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uv_hero/urls.py" afterPath="$PROJECT_DIR$/uv_hero/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uv_hero/views.py" afterPath="$PROJECT_DIR$/uv_hero/views.py" />
     </list>
     <ignored path="uv_hero.iws" />
@@ -42,13 +41,24 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uv_hero/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+            <state relative-caret-position="405">
+              <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#256#292#0" expanded="false" />
-                <element signature="e#316#597#0" expanded="false" />
-                <element signature="e#624#949#0" expanded="false" />
+                <element signature="e#254#290#0" expanded="false" />
+                <element signature="e#315#596#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/records/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+              <folding>
+                <marker date="1499386396000" expanded="true" signature="949:979" ph="..." />
               </folding>
             </state>
           </provider>
@@ -57,8 +67,8 @@
       <file leaf-file-name="algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uv_hero/algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="620">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -66,12 +76,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wsd.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../uv_data/wsd.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/records/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+            <state relative-caret-position="180">
+              <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uv_hero/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simul.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/records/templates/records/simul.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="204" column="37" selection-start-line="204" selection-start-column="37" selection-end-line="204" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1499387515000" expanded="true" signature="3021:3041" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,7 +167,6 @@
         <option value="$PROJECT_DIR$/../mysite/ok/urls.py" />
         <option value="$PROJECT_DIR$/records/models.py" />
         <option value="$PROJECT_DIR$/records/templates/records/registration_form.html" />
-        <option value="$PROJECT_DIR$/uv_hero/urls.py" />
         <option value="$PROJECT_DIR$/records/urls.py" />
         <option value="$PROJECT_DIR$/records/forms.py" />
         <option value="$PROJECT_DIR$/records/templates/records/form_template.html" />
@@ -150,9 +182,10 @@
         <option value="$PROJECT_DIR$/records/templates/records/index.html" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/uv_hero/pseudocode.txt" />
-        <option value="$PROJECT_DIR$/uv_hero/algorithm.py" />
+        <option value="$PROJECT_DIR$/uv_hero/urls.py" />
         <option value="$PROJECT_DIR$/records/views.py" />
         <option value="$PROJECT_DIR$/records/templates/records/simul.html" />
+        <option value="$PROJECT_DIR$/uv_hero/algorithm.py" />
         <option value="$PROJECT_DIR$/uv_hero/views.py" />
       </list>
     </option>
@@ -696,7 +729,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29156625" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31686747" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -917,22 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/records/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -977,16 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uv_hero/algorithm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../uv_data/wsd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -995,36 +1002,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/uv_hero/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/records/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/records/templates/records/simul.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="203" column="37" selection-start-line="203" selection-start-column="37" selection-end-line="203" selection-end-column="37" />
+          <caret line="204" column="37" selection-start-line="204" selection-start-column="37" selection-end-line="204" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1499376431000" expanded="true" signature="3020:3040" ph="..." />
+            <marker date="1499387515000" expanded="true" signature="3021:3041" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/records/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+        <state relative-caret-position="285">
+          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
           <folding>
-            <marker date="1499375978000" expanded="true" signature="949:979" ph="..." />
+            <marker date="1499386396000" expanded="true" signature="949:979" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uv_hero/algorithm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uv_hero/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+        <state relative-caret-position="405">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#256#292#0" expanded="false" />
-            <element signature="e#316#597#0" expanded="false" />
-            <element signature="e#624#949#0" expanded="false" />
+            <element signature="e#254#290#0" expanded="false" />
+            <element signature="e#315#596#0" expanded="false" />
           </folding>
         </state>
       </provider>

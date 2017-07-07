@@ -36,7 +36,7 @@ def detail(request, pi_id):
     if request.user.is_authenticated:
         pi = get_object_or_404(Pi, pk=pi_id)
         dataset = Data.objects.filter(pi=pi, status="valid")
-        return render(request, 'records/detail.html',{'pi': pi, 'dataset':dataset})
+        return render(request, 'records/detail.html', {'pi': pi, 'dataset':dataset})
     else:
         return HttpResponseRedirect("/records/login_user/")
 
@@ -45,7 +45,7 @@ def simul(request, pi_id):
     if request.user.is_authenticated:
         pi = get_object_or_404(Pi, pk=pi_id)
         a1 = request.POST.get('a1', "50")
-        a2 = request.POST.get('a2', "1")
+        a2 = request.POST.get('a2', "50")
         s1 = request.POST.get('s1', "9")
         s2 = request.POST.get('s2', "9")
         n1 = request.POST.get('n1', "6")
@@ -53,12 +53,12 @@ def simul(request, pi_id):
         m1 = request.POST.get('m1', "-10")
         m2 = request.POST.get('m2', "10000")
         real = request.POST.get('data', "")
-
+        print(request.POST)
         file = open('data.txt', 'w')
         file.write(real)
         file.close()
-        return render(request, 'records/simul.html',{'pi': pi,'a1':a1,'a2':a2,'s1':s1,'s2':s2,'n1':n1,'n2':n2,
-                                                     'm1':m1, 'm2':m2, 'real': real })
+        return render(request, 'records/simul.html', {'pi': pi,'a1':a1,'a2':a2,'s1':s1,'s2':s2,'n1':n1,'n2':n2,
+                                                     'm1':m1, 'm2':m2, 'real': real})
     else:
         return HttpResponseRedirect("/records/login_user/")
 
