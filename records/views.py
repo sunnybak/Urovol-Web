@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from django.http import HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
+import time, datetime
 
 
 def index(request):
@@ -36,10 +36,10 @@ def detail(request, pi_id):
     if request.user.is_authenticated:
         pi = get_object_or_404(Pi, pk=pi_id)
         dataset = Data.objects.filter(pi=pi, status="valid")
-        return render(request, 'records/detail.html', {'pi': pi, 'dataset':dataset})
+        return render(request, 'records/detail.html', {'pi': pi, 'dataset': dataset})
     else:
         return HttpResponseRedirect("/records/login_user/")
-import time, datetime
+
 
 def simul(request, pi_id):
     if request.user.is_authenticated:

@@ -17,9 +17,58 @@ ${demo.css}
             seriesCounter = 0,
             names = ['Raw', 'Simulated', 'Real'];
             var urls = [graph1, graph2];
+            var err = [];
 
             function createChart() {
                 // Create the chart
+
+                var simulated_data_array;
+                var real_data_array;
+
+                for(series in seriesOptions) {
+                    if(seriesOptions[series]["name"] === "Simulated") {
+                        simulated_data_array = seriesOptions[series]["data"];
+                    }
+                    if(seriesOptions[series]["name"] === "Real") {
+                        real_data_array = seriesOptions[series]["data"];
+                    }
+                }
+
+                var found;
+                var count = 0;
+                for(var i = 0; i < real_data_array.length; i++) {
+
+                    found = simulated_data_array.filter(function(item) {
+                        return(Math.abs(parseInt(real_data_array[i.toString()]["0"]) - parseInt(item["0"])) < 5000);
+                    });
+
+                    if(found.length > 0) {
+                        var avg = 0;
+                        for(var point in found) {
+                            if(typeof found[point]["1"] !== 'NaN') {
+                                avg += found[point]["1"];
+                            }
+                        }
+                        avg = avg/found.length;
+                        err[count] = (Math.abs(real_data_array[i.toString()]["1"] - avg)/real_data_array[i.toString()]["1"]);
+                        count++;
+                    }
+                }
+                var sum = 0;
+                var c = 0;
+                for(var i = 0; i < err.length; i++) {
+                    if(err[i] != Infinity) {
+                        sum += err[i];
+                        c++;
+                    }
+                }
+                err = Math.round(sum*10000/c)/100;
+
+                if(err == 0) {
+                    document.getElementById("error").innerHTML = "Insert real data";
+                } else {
+                    document.getElementById("error").innerHTML = "Average Percentage Error: " + err.toString() + "%";
+                }
 
                 var dataJson = {
 
@@ -185,6 +234,10 @@ Simulation {{ pi.code }}
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
+
+                    <div align="center" style="font-size: 30px" id="error">
+                            Average Percentage Error:
+                    </div>
 
                     <form action="{% url 'simul' pi.id %}" style="display: inline;" method="post">
                         {% csrf_token %}
