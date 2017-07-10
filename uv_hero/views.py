@@ -2,9 +2,6 @@ from django.shortcuts import render
 from records.models import Data, Pi
 from django.http import HttpResponse, Http404
 import simplejson
-from copy import deepcopy
-import numpy as np
-import time, datetime
 from .algorithm import *
 
 
@@ -22,7 +19,7 @@ def getData(pi):
     data = []
 
     for d in dataObjects:
-        data.append([int((d.date_time * 1000) - 14400000), d.raw_vol])
+        data.append([int((d.date_time * 1000) - 14400000), float(d.raw_vol)])
 
     return deepcopy(sorted(data, key=lambda x: x[0]))
 
@@ -38,10 +35,9 @@ def params(request):
     return alg(getData(pi), (AVG, STD, LASTN, DIFF_MIN, DIFF_MAX))
 
 
-# blue graph
+# raw data: blue graph
 def chart_data_json(request):
 
-    # processed_array = params(request)
     processed_array = getData(request.GET.get('pi', 0))
 
     return HttpResponse(simplejson.dumps(processed_array), content_type='application/json')
