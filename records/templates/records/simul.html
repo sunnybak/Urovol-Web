@@ -64,7 +64,7 @@ ${demo.css}
                 }
                 err = Math.round(sum*10000/c)/100;
 
-                if(err == 0) {
+                if(err.toString() === 'NaN') {
                     document.getElementById("error").innerHTML = "Insert real data";
                 } else {
                     document.getElementById("error").innerHTML = "Average Percentage Error: " + err.toString() + "%";
