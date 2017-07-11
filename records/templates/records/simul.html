@@ -54,6 +54,7 @@ ${demo.css}
                         count++;
                     }
                 }
+
                 var sum = 0;
                 var c = 0;
                 for(var i = 0; i < err.length; i++) {
@@ -134,7 +135,10 @@ ${demo.css}
                     yAxis: {
                         title: {
                             text: 'Volume'
-                        }
+                        },
+                        floor: 0,
+                        minorGridLineColor: '#F0F0F0',
+                        minorTickInterval: 'auto'
                     },
 
                     tooltip: {
@@ -144,7 +148,7 @@ ${demo.css}
                         valueSuffix: 'ml'
                     },
 
-                    series: seriesOptions
+                    series: seriesOptions,
 
                 };
 

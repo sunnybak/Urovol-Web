@@ -1,8 +1,8 @@
 import numpy as np
 from copy import deepcopy
 
-
-def alg2(raw_data, params):
+# A0
+def alg1(raw_data, params):
 
     # the resulting array
     processed_array = []
@@ -39,7 +39,7 @@ def alg2(raw_data, params):
     # return the processed array
     return deepcopy(processed_array)
 
-
+# A1
 def alg(data, params):
     AVG, STD, LASTN, DIFF_MIN, DIFF_MAX = params
 
