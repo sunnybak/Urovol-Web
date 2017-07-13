@@ -33,7 +33,7 @@ def alg0(raw_data, params):
             # appending the processed point
             processed_array.append((raw_data[i][0], processed))
 
-            # updating the previous averagetell me about yourself
+            # updating the previous average
             prev_avg = avg
 
     # return the processed array
