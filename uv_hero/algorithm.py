@@ -2,7 +2,7 @@ import numpy as np
 from copy import deepcopy
 
 # A0
-def alg1(raw_data, params):
+def alg0(raw_data, params):
 
     # the resulting array
     processed_array = []
@@ -33,7 +33,7 @@ def alg1(raw_data, params):
             # appending the processed point
             processed_array.append((raw_data[i][0], processed))
 
-            # updating the previous average
+            # updating the previous averagetell me about yourself
             prev_avg = avg
 
     # return the processed array
