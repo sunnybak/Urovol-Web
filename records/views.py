@@ -43,16 +43,29 @@ def detail(request, pi_id):
 
 def simul(request, pi_id):
     if request.user.is_authenticated:
-        pi = get_object_or_404(Pi, pk=pi_id)
-        a1 = request.POST.get('a1', "50")
-        a2 = request.POST.get('a2', "50")
-        s1 = request.POST.get('s1', "9")
-        s2 = request.POST.get('s2', "9")
-        n1 = request.POST.get('n1', "6")
-        n2 = request.POST.get('n2', "6")
-        m1 = request.POST.get('m1', "-10")
-        m2 = request.POST.get('m2', "10000")
+
+        class const(object):
+            def __init__(self, name, val, desc):
+                self.n = name
+                self.v = val
+                self.d = desc
+
+        # format: const([name], [default value], [description])
+        consts = [const('AVG', 50, "Average Threshold:"), const('STD', 9, "Standard Deviation Threshold:"),
+                  const('LASTN', 6, "Number of running readings:"), const('DIFF_MIN', -10, "Min Difference:"),
+                  const('DIFF_MAX', 10000, "Max Difference:"), const('MULT', 0.9, "Multiplier:"),
+                  const('INTV', 300, "Interval:")]
+
+        cont = dict()
+        cont['pi'] = get_object_or_404(Pi, pk=pi_id)
+
+        for k in consts:
+            k.v = request.POST.get(k.n, str(k.v))
+
+        cont['consts'] = consts
+
         real = request.POST.get('data', "")
+        cont['real'] = real
 
         data = [line.split('\t') for line in real.split('\n')]
         times = []
@@ -61,13 +74,18 @@ def simul(request, pi_id):
                 times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple()) * 1000,
                          round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
             except ValueError:
-                if '/' in d[0]:
-                    times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y").timetuple()) * 1000,
+                try:
+                    times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%Y %H:%M").timetuple()) * 1000,
                                   round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
-                else:
-                    pass
-        return render(request, 'records/simul.html', {'pi': pi,'a1':a1,'a2':a2,'s1':s1,'s2':s2,'n1':n1,'n2':n2,
-                                                     'm1':m1, 'm2':m2, 'real': real, 'times':str(times)})
+                except ValueError:
+                    if '/' in d[0]:
+                        times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y").timetuple()) * 1000,
+                                      round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
+                    else:
+                        pass
+        cont['times'] = str(times)
+
+        return render(request, 'records/simul.html', cont)
     else:
         return HttpResponseRedirect("/records/login_user/")
 

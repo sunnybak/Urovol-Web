@@ -50,7 +50,6 @@ def alg1(data, params):
     processed_array = []
 
     if len(data) > LASTN:
-        data = [[x[0], float(x[1])] for x in data]
 
         for i in range(LASTN - 1, len(data)):
             avg = float(np.mean([x[1] for x in data[i - (LASTN - 1): i + 1]]))
@@ -75,10 +74,10 @@ def alg1(data, params):
 
     return deepcopy(processed_array)
 
-
+# A2
 def alg(data, params):
-    AVG, STD, LASTN, DIFF_MIN, DIFF_MAX = params
-
+    AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV = params
+    # print(params)
     prev_avg = 100000
     prev_valid_avg = 1000000
     processed = 0
@@ -99,13 +98,13 @@ def alg(data, params):
                 if (avg - prev_valid_avg) > 10:
                     processed += avg - prev_valid_avg
 
-                elif avg < (0.9 * prev_valid_avg) and avg > 200:
+                elif 200 < avg < (MULT * prev_valid_avg):
                     marker = 0
-                    if (i - prev_valid_index) > 300:
-                        binary_array = np.zeros(i - 300 - prev_valid_index + 2)
-                        for k in range(prev_valid_index, (i - 298)):
-                            test_array = avg_array[k:k + 300]
-                            for j in range(0, 300):
+                    if (i - prev_valid_index) > INTV:
+                        binary_array = np.zeros(i - INTV - prev_valid_index + 2)
+                        for k in range(prev_valid_index, (i - (INTV - 2))):
+                            test_array = avg_array[k:k + INTV]
+                            for j in range(0, INTV):
                                 if test_array[j] > 20:
                                     binary_array[k - prev_valid_index] = 1
 
@@ -117,8 +116,6 @@ def alg(data, params):
                         processed += avg - 200
                     else:
                         processed += avg - prev_avg
-
-
 
                 else:
                     processed += avg - prev_avg

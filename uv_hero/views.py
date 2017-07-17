@@ -29,10 +29,12 @@ def params(request):
     pi = params.get('pi', 0)
     AVG = float(params.get('AVG', "50"))
     STD = int(params.get('STD', "9"))
-    LASTN = int(params.get('lN', "6"))
-    DIFF_MIN = int(params.get('MIN', "-10"))
-    DIFF_MAX = int(params.get('MAX', "10000"))
-    return alg(getData(pi), (AVG, STD, LASTN, DIFF_MIN, DIFF_MAX))
+    LASTN = int(params.get('LASTN', "6"))
+    DIFF_MIN = int(params.get('DIFF_MIN', "-10"))
+    DIFF_MAX = int(params.get('DIFF_MAX', "10000"))
+    MULT = float(params.get('MULT', "0.9"))
+    INTV = int(params.get('INTV', "300"))
+    return alg(getData(pi), (AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV))
 
 
 # raw data: blue graph

@@ -8,9 +8,19 @@
 		<style type="text/css">
 ${demo.css}
 		</style>
+        <script>
+            var params = "?pi={{ pi.pk }}";
+        </script>
+
+        {% for k in consts %}
+            <script>
+                params += "&" + "{{k.n}}" + "=" + "{{k.v}}";
+            </script>
+        {% endfor %}
+
 		<script type="text/javascript">
             var graph1 = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
-            var graph2 = "{% url 'all_data_json' %}?pi={{ pi.pk }}&AVG={{a2}}&STD={{s2}}&lN={{n2}}&MIN={{m1}}&MAX={{m2}}";
+            var graph2 = "{% url 'all_data_json' %}" + params;
             var graph3 = JSON.parse("[{{times}}]")["0"];
 
             var seriesOptions = [],
@@ -259,52 +269,30 @@ Simulation {{ pi.code }}
                             <table cellpadding="0" cellspacing="0" border="0" class = "table">
                               <tbody>
                                 <tr>
-                                    <td>
-                                        <label for="a1"></label><br>
-                                      <!--<input id="a1" type="text" name="a1" value="{{ a1 }}">-->
-                                    </td>
-                                    <td>
-                                        <label for="a2">Average Theshold: </label><br>
-                                      <input id="a2" type="text" name="a2" value="{{ a2 }}">
-                                    </td>
+                                    <td></td>
+                                    <td></td>
                                     <td rowspan="5">
+
                                         <label for="data">Copy and Paste Excel Cells: </label></br>
                                         {% csrf_token %}
                                         <textarea id="data" name="data" rows="17" cols="30">{{ real }}</textarea>
+
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <label for="s1"></label></br>
-                                        <!--<input type="text" id="s1" name="s1" value="{{ s1 }}"><br>-->
-                                    </td>
-                                    <td>
-                                        <label for="s2">Standard Deviation Threshold: </label></br>
-                                        <input type="text" id="s2" name="s2" value="{{ s2 }}"><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="n1"></label></br>
-                                        <!--<input type="text" id="n1" name="n1" value="{{ n1 }}"><br><br>-->
-                                    </td>
-                                    <td>
-                                        <label for="n2">Number of Running Readings: </label></br>
-                              <input type="text" id="n2" name="n2" value="{{ n2 }}"><br><br>
-                                    </td>
-                                </tr>
-                              <tr><td></td>
-                                 <td>
-                                    <label for="m1">Min Difference: </label></br>
-                          <input type="text" id="m1" name="m1" value="{{ m1 }}"><br><br>
-                                </td>
-                              </tr>
-                              <tr><td></td>
-                                  <td>
-                                        <label for="m2">Max Difference: </label></br>
-                              <input type="text" id="m2" name="m2" value="{{ m2 }}"><br><br>
-                                    </td>
-                              </tr>
+
+                                {% for k in consts %}
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+
+                                            <label for="{{k.n}}">{{k.d}}</label><br>
+                                            <input id="{{k.n}}" type="text" name="{{k.n}}" value="{{k.v}}">
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
                                <tr>
                                   <td colspan="3"><input type="submit" value="Submit"></td>
                               </tr>
