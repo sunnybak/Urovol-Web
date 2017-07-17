@@ -40,7 +40,7 @@ def alg0(raw_data, params):
     return deepcopy(processed_array)
 
 # A1
-def alg(data, params):
+def alg1(data, params):
     AVG, STD, LASTN, DIFF_MIN, DIFF_MAX = params
 
     prev_avg = 100000
@@ -69,6 +69,62 @@ def alg(data, params):
                     processed += avg - prev_avg
 
                 prev_valid_avg = avg
+
+            processed_array.append((data[i][0], processed))
+            prev_avg = avg
+
+    return deepcopy(processed_array)
+
+
+def alg(data, params):
+    AVG, STD, LASTN, DIFF_MIN, DIFF_MAX = params
+
+    prev_avg = 100000
+    prev_valid_avg = 1000000
+    processed = 0
+    processed_array = []
+    avg_array = np.zeros(len(data))
+    prev_valid_index = 1
+
+    if len(data) > LASTN:
+        data = [[x[0], float(x[1])] for x in data]
+
+        for i in range(LASTN - 1, len(data)):
+            avg = float(np.mean([x[1] for x in data[i - (LASTN - 1): i + 1]]))
+            std = float(np.std([x[1] for x in data[i - (LASTN - 1): i + 1]]))
+            avg_array[i] = avg
+
+            if avg > AVG and std < STD and DIFF_MIN < avg - prev_avg < DIFF_MAX:
+
+                if (avg - prev_valid_avg) > 10:
+                    processed += avg - prev_valid_avg
+
+                elif avg < (0.9 * prev_valid_avg) and avg > 200:
+                    marker = 0
+                    if (i - prev_valid_index) > 300:
+                        binary_array = np.zeros(i - 300 - prev_valid_index + 2)
+                        for k in range(prev_valid_index, (i - 298)):
+                            test_array = avg_array[k:k + 300]
+                            for j in range(0, 300):
+                                if test_array[j] > 20:
+                                    binary_array[k - prev_valid_index] = 1
+
+                        for m in range(0, len(binary_array)):
+                            if binary_array[m] == 0:
+                                marker = 1
+
+                    if marker == 1:
+                        processed += avg - 200
+                    else:
+                        processed += avg - prev_avg
+
+
+
+                else:
+                    processed += avg - prev_avg
+
+                prev_valid_avg = avg
+                prev_valid_index = i
 
             processed_array.append((data[i][0], processed))
             prev_avg = avg
