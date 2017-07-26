@@ -94,3 +94,4 @@ def add_data(all_data):
         all_data.pop(0)
     except :
         print("Error while inserting into records_data")
+
