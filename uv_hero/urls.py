@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^simul/(?P<pi_id>[0-9]+)/$', vu.simul, name='simul'),
     url(r'^fetch/', views.chart_data_json, name='chart_data_json'),
     url(r'^all/', views.all_data_json, name='all_data_json'),
+    url(r'^nurse/', views.nurse_data_json, name='nurse_data_json'),
 ]
 

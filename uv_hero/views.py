@@ -11,7 +11,7 @@ def index(request):
 
 def getData(pi):
 
-    dataObjects = Data.objects.filter(pi=pi)
+    dataObjects = Data.objects.filter(pi=pi).exclude(status="nurse")
 
     if not dataObjects:
         raise Http404("Session does not exist")
@@ -62,5 +62,11 @@ def chart_data_json(request):
 def all_data_json(request):
 
     processed_array = params(request)
+
+    return HttpResponse(simplejson.dumps(processed_array), content_type='application/json')
+
+def nurse_data_json(request):
+
+    processed_array = getNurseData(request.GET.get('pi', 0))
 
     return HttpResponse(simplejson.dumps(processed_array), content_type='application/json')
