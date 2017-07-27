@@ -64,27 +64,6 @@ def simul(request, pi_id):
 
         cont['consts'] = consts
 
-        real = request.POST.get('data', "")
-        cont['real'] = real
-
-        data = [line.split('\t') for line in real.split('\n')]
-        times = []
-        for d in data:
-            try:
-                times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple()) * 1000,
-                         round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
-            except ValueError:
-                try:
-                    times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%Y %H:%M").timetuple()) * 1000,
-                                  round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
-                except ValueError:
-                    if '/' in d[0]:
-                        times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y").timetuple()) * 1000,
-                                      round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
-                    else:
-                        pass
-        cont['times'] = str(times)
-
         return render(request, 'records/simul.html', cont)
     else:
         return HttpResponseRedirect("/records/login_user/")

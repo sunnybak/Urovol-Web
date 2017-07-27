@@ -22,7 +22,7 @@ ${demo.css}
             var graph1 = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
             var graph2 = "{% url 'all_data_json' %}" + params;
             var graph3 = "{% url 'nurse_data_json' %}?pi={{ pi.pk }}";
-
+//            var graph3 = [];
             var seriesOptions = [],
             seriesCounter = 0,
             names = ['Raw', 'Simulated', 'Real' ];
