@@ -112,9 +112,3 @@ def findPi(code):
 
 if __name__ == "__main__":
     piid = findPi("ZE18YE")
-
-    # d = Data(date_time=1501170473.2, raw_vol=5000, las_vol=5000, new_vol=5000, cum_vol=5000, status="nurse", pi_id=piid)
-    # d.save()
-    d = Data(date_time=1501134805.3, raw_vol=5000, las_vol=5000, new_vol=5000, cum_vol=5000, status="nurse", pi_id=piid)
-    d.save()
-

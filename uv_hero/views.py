@@ -23,6 +23,20 @@ def getData(pi):
 
     return deepcopy(sorted(data, key=lambda x: x[0]))
 
+def getNurseData(pi):
+
+    dataObjects = Data.objects.filter(pi=pi, status="nurse")
+
+    if not dataObjects:
+        raise Http404("Session does not exist")
+
+    data = []
+
+    for d in dataObjects:
+        data.append([int((d.date_time * 1000) - 14400000), float(d.raw_vol)])
+
+    return deepcopy(sorted(data, key=lambda x: x[0]))
+
 def params(request):
     params = request.GET
     pi = params.get('pi', 0)
