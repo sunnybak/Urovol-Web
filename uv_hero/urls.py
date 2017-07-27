@@ -12,4 +12,3 @@ urlpatterns = [
     url(r'^all/', views.all_data_json, name='all_data_json'),
     url(r'^nurse/', views.nurse_data_json, name='nurse_data_json'),
 ]
-

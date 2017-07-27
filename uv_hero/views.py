@@ -33,7 +33,7 @@ def getNurseData(pi):
     data = []
 
     for d in dataObjects:
-        data.append([int((d.date_time * 1000) - 14400000), float(d.raw_vol)])
+        data.append([int((d.date_time * 1000) - 14400000), float(d.cum_vol)])
 
     return deepcopy(sorted(data, key=lambda x: x[0]))
 
@@ -68,5 +68,5 @@ def all_data_json(request):
 def nurse_data_json(request):
 
     processed_array = getNurseData(request.GET.get('pi', 0))
-
+    print("processed is" + str(processed_array))
     return HttpResponse(simplejson.dumps(processed_array), content_type='application/json')

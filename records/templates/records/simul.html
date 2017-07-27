@@ -21,12 +21,12 @@ ${demo.css}
 		<script type="text/javascript">
             var graph1 = "{% url 'chart_data_json' %}?pi={{ pi.pk }}";
             var graph2 = "{% url 'all_data_json' %}" + params;
-            var graph3 = JSON.parse("[{{times}}]")["0"];
+            var graph3 = "{% url 'nurse_data_json' %}?pi={{ pi.pk }}";
 
             var seriesOptions = [],
             seriesCounter = 0,
             names = ['Raw', 'Simulated', 'Real' ];
-            var urls = [graph1, graph2];
+            var urls = [graph1, graph2, graph3];
             var err = [];
 
             function createChart() {
@@ -169,31 +169,10 @@ ${demo.css}
 
             $.each(names, function (i, name) {
                 n += 1;
-                if(name !== "Real") {
-                    $.getJSON(urls[n], function (data) {
-                        seriesOptions[i] = {
-                            name: name,
-                            data: data
-                        };
-                        // As we're loading the data asynchronously, we don't know what order it will arrive. So
-                        // we keep a counter and create the chart when all the data is loaded.
-                        seriesCounter += 1;
-
-                        if (seriesCounter === names.length) {
-                            createChart();
-                        }
-
-                        console.log("Printing the graph: " + name);
-                    });
-                } else {
+                $.getJSON(urls[n], function (data) {
                     seriesOptions[i] = {
                         name: name,
-                        data: graph3,
-                        marker: {
-                            enabled: true,
-                            radius: 4
-                        },
-                        shadow: false
+                        data: data
                     };
                     // As we're loading the data asynchronously, we don't know what order it will arrive. So
                     // we keep a counter and create the chart when all the data is loaded.
@@ -204,7 +183,7 @@ ${demo.css}
                     }
 
                     console.log("Printing the graph: " + name);
-                }
+                });
             });
 		</script>
 
@@ -271,13 +250,8 @@ Simulation {{ pi.code }}
                                 <tr>
                                     <td></td>
                                     <td></td>
-                                    <td rowspan="5">
+                                    <td></td>
 
-                                        <label for="data">Copy and Paste Excel Cells: </label></br>
-                                        {% csrf_token %}
-                                        <textarea id="data" name="data" rows="17" cols="30">{{ real }}</textarea>
-
-                                    </td>
                                 </tr>
 
                                 {% for k in consts %}
@@ -290,6 +264,7 @@ Simulation {{ pi.code }}
                                             <input id="{{k.n}}" type="text" name="{{k.n}}" value="{{k.v}}">
 
                                         </td>
+                                        <td></td>
                                     </tr>
                                 {% endfor %}
 
