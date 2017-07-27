@@ -23,7 +23,6 @@ def getData(pi):
 
     return deepcopy(sorted(data, key=lambda x: x[0]))
 
-
 def params(request):
     params = request.GET
     pi = params.get('pi', 0)
@@ -51,6 +50,3 @@ def all_data_json(request):
     processed_array = params(request)
 
     return HttpResponse(simplejson.dumps(processed_array), content_type='application/json')
-
-
-

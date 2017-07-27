@@ -3,7 +3,18 @@ The following information is CONFIDENTIAL. If you are NOT an admin, and if you a
 e-mail ssb2189@columbia.edu
 """
 import psycopg2.extras
+# import os
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "uv_hero.settings")
 
+import sys
+import os
+import django
+
+sys.path.append('uv_hero')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'uv_hero.settings'
+django.setup()
+
+from records.models import Pi, Data
 
 # Final Database - Storing patient records
 DBNAME = 'd5nq5opbhumdlr'
@@ -92,6 +103,18 @@ def add_data(all_data):
     try:
         cur.execute("""INSERT INTO records_data(date_time,raw_vol, las_vol,new_vol, cum_vol, status, pi_id) VALUES(%s, %s, %s, %s, %s, %s, %s)""", (time,vol,last,new,cumul,status,pi_id))
         all_data.pop(0)
-    except :
+    except:
         print("Error while inserting into records_data")
+
+
+def findPi(code):
+    return Pi.objects.filter(code=code)[0].id
+
+if __name__ == "__main__":
+    piid = findPi("ZE18YE")
+
+    # d = Data(date_time=1501170473.2, raw_vol=5000, las_vol=5000, new_vol=5000, cum_vol=5000, status="nurse", pi_id=piid)
+    # d.save()
+    d = Data(date_time=1501134805.3, raw_vol=5000, las_vol=5000, new_vol=5000, cum_vol=5000, status="nurse", pi_id=piid)
+    d.save()
 
