@@ -18,9 +18,9 @@ def index(request):
                 self.address = pi.address
                 self.latest = ''
                 self.len = ''
-        all = []
-        for pi in Pi.objects.order_by('code'):
-            all.append(piIndex(pi))
+
+        all = [piIndex(pi) for pi in Pi.objects.order_by('code')]
+
         return render(request, 'records/index.html', {'allpi': all})
     else:
         return HttpResponseRedirect("/records/login_user/")

@@ -104,7 +104,7 @@ if __name__ == "__main__":
                 for i in range(0, len(rawTimes)):
                     Data(date_time=rawTimes[i], raw_vol=rawVol[i], cum_vol=0, new_vol=0, las_vol=0, status="raw",
                          pi=piOb).save()
-                print("\tSuccessfully added all the raw data data!\n")
+                print("\tSuccessfully added all the raw data!\n")
             except:
                 print("\t---error reading sheet: adding Raw data---\n")
                 pass
