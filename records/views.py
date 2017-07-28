@@ -16,16 +16,10 @@ def index(request):
                 self.id = pi.id
                 self.code = pi.code
                 self.address = pi.address
-                # data = Data.objects.filter(pi=pi, status="valid")
-                # self.len = len(data)
-                # if self.len != 0:
-                #     self.latest = max(data, key=lambda d: d.date_time)
-                # else:
-                #     self.latest = "N/A"
-                self.len = ""
-                self.latest = ""
+                self.latest = ''
+                self.len = ''
         all = []
-        for pi in Pi.objects.all()[::-1]:
+        for pi in Pi.objects.order_by('code'):
             all.append(piIndex(pi))
         return render(request, 'records/index.html', {'allpi': all})
     else:
@@ -51,8 +45,8 @@ def simul(request, pi_id):
                 self.d = desc
 
         # format: const([name], [default value], [description])
-        consts = [const('AVG', 50, "Average Threshold:"), const('STD', 9, "Standard Deviation Threshold:"),
-                  const('LASTN', 6, "Number of running readings:"), const('DIFF_MIN', -10, "Min Difference:"),
+        consts = [const('AVG', 50, "Average Threshold:"), const('STD', 14, "Standard Deviation Threshold:"),
+                  const('LASTN', 60, "Number of running readings:"), const('DIFF_MIN', -10, "Min Difference:"),
                   const('DIFF_MAX', 10000, "Max Difference:"), const('MULT', 0.9, "Multiplier:"),
                   const('INTV', 300, "Interval:")]
 

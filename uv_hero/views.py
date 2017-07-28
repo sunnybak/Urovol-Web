@@ -39,8 +39,8 @@ def params(request):
     params = request.GET
     pi = params.get('pi', 0)
     AVG = float(params.get('AVG', "50"))
-    STD = int(params.get('STD', "9"))
-    LASTN = int(params.get('LASTN', "6"))
+    STD = int(params.get('STD', "14"))
+    LASTN = int(params.get('LASTN', "60"))
     DIFF_MIN = int(params.get('DIFF_MIN', "-10"))
     DIFF_MAX = int(params.get('DIFF_MAX', "10000"))
     MULT = float(params.get('MULT', "0.9"))
