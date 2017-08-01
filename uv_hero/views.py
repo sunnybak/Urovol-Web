@@ -3,7 +3,7 @@ from records.models import Data, Pi
 from django.http import HttpResponse, Http404
 import simplejson
 from .algorithm import *
-
+from params import getParams, setParams
 
 def index(request):
     return render(request, 'index.html')
@@ -38,13 +38,14 @@ def getNurseData(pi):
 def params(request):
     params = request.GET
     pi = params.get('pi', 0)
-    AVG = float(params.get('AVG', "50"))
-    STD = int(params.get('STD', "14"))
-    LASTN = int(params.get('LASTN', "60"))
-    DIFF_MIN = int(params.get('DIFF_MIN', "-10"))
-    DIFF_MAX = int(params.get('DIFF_MAX', "10000"))
-    MULT = float(params.get('MULT', "0.9"))
-    INTV = int(params.get('INTV', "300"))
+    p = getParams()
+    AVG = int(params.get('AVG', p[0]))
+    STD = int(params.get('STD', p[1]))
+    LASTN = int(params.get('LASTN', p[2]))
+    DIFF_MIN = int(params.get('DIFF_MIN', p[3]))
+    DIFF_MAX = int(params.get('DIFF_MAX', p[4]))
+    MULT = float(params.get('MULT', p[5]))
+    INTV = int(params.get('INTV', p[6]))
     return alg(getData(pi), (AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV))
 
 

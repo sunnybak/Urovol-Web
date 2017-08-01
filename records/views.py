@@ -6,7 +6,29 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from django.http import HttpResponseRedirect
-from .params import getParams, setParams
+from params import getParams, setParams
+
+
+class const(object):
+    def __init__(self, name, val, desc):
+        self.n = name
+        self.v = val
+        self.d = desc
+
+    @staticmethod
+    def listOfConstants(p=None):
+        if p is None:
+            p = getParams()
+
+        AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV = p
+
+        # format: const([name], [default value], [description])
+        consts = [const('AVG', AVG, "Average Threshold:"), const('STD', STD, "Standard Deviation Threshold:"),
+                  const('LASTN', LASTN, "Number of running readings:"), const('DIFF_MIN', DIFF_MIN, "Min Difference:"),
+                  const('DIFF_MAX', DIFF_MAX, "Max Difference:"), const('MULT', MULT, "Multiplier:"),
+                  const('INTV', INTV, "Interval:")]
+
+        return consts
 
 def index(request):
     if request.user.is_authenticated:
@@ -20,7 +42,21 @@ def index(request):
 
         all = [piIndex(pi) for pi in Pi.objects.order_by('code')]
 
-        return render(request, 'records/index.html', {'allpi': all})
+        p = getParams()
+        params = request.GET
+
+        AVG = int(params.get('AVG', p[0]))
+        STD = int(params.get('STD', p[1]))
+        LASTN = int(params.get('LASTN', p[2]))
+        DIFF_MIN = int(params.get('DIFF_MIN', p[3]))
+        DIFF_MAX = int(params.get('DIFF_MAX', p[4]))
+        MULT = float(params.get('MULT', p[5]))
+        INTV = int(params.get('INTV', p[6]))
+        setParams((AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV))
+
+        consts = const.listOfConstants((AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV))
+
+        return render(request, 'records/index.html', {'allpi': all, 'consts': consts})
     else:
         return HttpResponseRedirect("/records/login_user/")
 
@@ -36,19 +72,7 @@ def detail(request, pi_id):
 
 def simul(request, pi_id):
     if request.user.is_authenticated:
-
-        class const(object):
-            def __init__(self, name, val, desc):
-                self.n = name
-                self.v = val
-                self.d = desc
-
-        # format: const([name], [default value], [description])
-        consts = [const('AVG', 50, "Average Threshold:"), const('STD', 14, "Standard Deviation Threshold:"),
-                  const('LASTN', 60, "Number of running readings:"), const('DIFF_MIN', -10, "Min Difference:"),
-                  const('DIFF_MAX', 10000, "Max Difference:"), const('MULT', 0.9, "Multiplier:"),
-                  const('INTV', 300, "Interval:")]
-
+        consts = const.listOfConstants()
         cont = dict()
         cont['pi'] = get_object_or_404(Pi, pk=pi_id)
 
