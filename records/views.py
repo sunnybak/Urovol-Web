@@ -6,8 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from django.http import HttpResponseRedirect
-import time, datetime
-
+from .params import getParams, setParams
 
 def index(request):
     if request.user.is_authenticated:
