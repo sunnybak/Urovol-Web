@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,11 +84,13 @@ WSGI_APPLICATION = 'uv_hero.wsgi.application'
 
 DATABASES = {
 
-    # # Default offline sqlite database
+    # Default offline sqlite database
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
+
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 
     # # Temporary Database - Testing
     # 'default': {
@@ -100,14 +103,14 @@ DATABASES = {
     # }
     
     # Final Database -   Storing patient records
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5nq5opbhumdlr',
-        'USER': 'kznrowmqsnyetc',
-        'PASSWORD': 'RRjBYCRf8crRhzrpHmk-HcPvnb',
-        'HOST': 'ec2-54-163-253-94.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'd5nq5opbhumdlr',
+    #     'USER': 'kznrowmqsnyetc',
+    #     'PASSWORD': 'RRjBYCRf8crRhzrpHmk-HcPvnb',
+    #     'HOST': 'ec2-54-163-253-94.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 
 }
 
@@ -136,8 +139,8 @@ USE_L10N = True
 USE_TZ = True
 
 # Update database configuration with $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
