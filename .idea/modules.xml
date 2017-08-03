@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Misc/.idea/Misc.iml" filepath="$PROJECT_DIR$/../Misc/.idea/Misc.iml" />
       <module fileurl="file://$PROJECT_DIR$/../blockchain-hackathon/.idea/blockchain-hackathon.iml" filepath="$PROJECT_DIR$/../blockchain-hackathon/.idea/blockchain-hackathon.iml" />
       <module fileurl="file://$PROJECT_DIR$/../mysite/.idea/mysite.iml" filepath="$PROJECT_DIR$/../mysite/.idea/mysite.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../uv_data/.idea/uv_data.iml" filepath="$PROJECT_DIR$/../uv_data/.idea/uv_data.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/uv_hero.iml" filepath="$PROJECT_DIR$/.idea/uv_hero.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../uv_hero2/.idea/uv_hero.iml" filepath="$PROJECT_DIR$/../uv_hero2/.idea/uv_hero.iml" />
     </modules>
   </component>
 </project>

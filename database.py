@@ -8,9 +8,11 @@ from uv_hero.algorithm import alg
 
 sys.path.append('uv_hero')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'uv_hero.settings'
+os.environ['DATABASE_URL'] = 'postgres://u82igt0qtftuee:p2a86c1e8c0bdc274664b9fae1a3507a97a6d7c4be5b6475fa82996799202968a@ec2-34-230-191-133.compute-1.amazonaws.com:5432/d8b1o1r9gidjh0'
 django.setup()
 
 from records.models import Pi, Data
+from params import getParams
 
 
 def generateCSVcomparison(code):
@@ -24,7 +26,7 @@ def generateCSVcomparison(code):
     for d in piReadings.exclude(status="nurse"):
         data.append([int(d.date_time), float(d.raw_vol)])
 
-    par = (50, 14, 60, -10, 10000, 0.9, 300)
+    par = getParams()
     sortedProc = alg(sorted(deepcopy(data), key=lambda x: x[0]), par)
 
     nurseReadings = sorted(piReadings.filter(status="nurse"), key= lambda x: x.date_time)
@@ -63,15 +65,15 @@ def generateCSVcomparison(code):
 
 if __name__ == "__main__":
 
-    Data.objects.filter(status="nurse").delete()
-    path = '/Users/Shikhar/Google Drive/Combined/'
-
-    try:
-        shutil.rmtree(path) # removes all files from this path
-    except:
-        print('enter the correct path')
-
-    os.makedirs(path)
+    # Data.objects.filter(status="nurse").delete()
+    # path = '/Users/Shikhar/Google Drive/Combined/'
+    #
+    # try:
+    #     shutil.rmtree(path) # removes all files from this path
+    # except:
+    #     print('enter the correct path')
+    #
+    # os.makedirs(path)
 
     print('starting glob')
 
@@ -127,10 +129,10 @@ if __name__ == "__main__":
                 print("\t---error reading sheet: adding Nurse data---\n")
                 continue
 
-            try:
-                generateCSVcomparison(code)
-            except:
-                print("\t---error generating comparison CSV---\n")
-                continue
+            # try:
+            #     generateCSVcomparison(code)
+            # except:
+            #     print("\t---error generating comparison CSV---\n")
+            #     continue
 
         print("Done!")
