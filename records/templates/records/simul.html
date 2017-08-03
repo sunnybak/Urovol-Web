@@ -312,7 +312,11 @@ Simulation {{ pi.code }}
                                 <tr>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                    <td rowspan="10">
+                                        <label for="data">Copy and Paste Excel Cells: </label></br>
+                                        {% csrf_token %}
+                                        <textarea id="data" name="data" rows="17" cols="30">{{ real }}</textarea>
+                                    </td>
 
                                 </tr>
 
@@ -326,7 +330,7 @@ Simulation {{ pi.code }}
                                             <input id="{{k.n}}" type="text" name="{{k.n}}" value="{{k.v}}">
 
                                         </td>
-                                        <td></td>
+{#                                        <td></td>#}
                                     </tr>
                                 {% endfor %}
 

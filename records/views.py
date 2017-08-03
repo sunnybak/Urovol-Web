@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from django.http import HttpResponseRedirect
 from params import getParams, setParams
+import time, datetime
 
 
 class const(object):
@@ -56,7 +57,7 @@ def index(request):
 
         consts = const.listOfConstants((AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV))
 
-        return render(request, 'records/index.html', {'allpi': all, 'consts': consts})
+        return render(request, 'records/index.html', {'allpi': all, 'consts': consts })
     else:
         return HttpResponseRedirect("/records/login_user/")
 
@@ -80,6 +81,34 @@ def simul(request, pi_id):
             k.v = request.POST.get(k.n, str(k.v))
 
         cont['consts'] = consts
+
+        real = request.POST.get('data', "")
+
+        data = [line.split('\t') for line in real.split('\n')]
+        times = []
+        for d in data:
+            try:
+                times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y %H:%M").timetuple()) + 14400,
+                         round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
+            except ValueError:
+                try:
+                    times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%Y %H:%M").timetuple()) + 14400,
+                                  round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
+                except ValueError:
+                    if '/' in d[0]:
+                        times.append([time.mktime(datetime.datetime.strptime(d[0], "%m/%d/%y").timetuple()) + 14400,
+                                      round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
+                    else:
+                        pass
+
+
+        if len(times) > 0:
+            Data.objects.filter(pi=cont['pi'], status="nurse").delete()
+            for t in times:
+                Data(date_time=t[0], raw_vol=0, cum_vol=t[1], new_vol=0, las_vol=0, status="nurse",
+                     pi=cont['pi']).save()
+
+        cont['real'] = real
 
         return render(request, 'records/simul.html', cont)
     else:
