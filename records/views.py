@@ -11,10 +11,12 @@ import time, datetime
 
 
 class const(object):
+
     def __init__(self, name, val, desc):
         self.n = name
         self.v = val
         self.d = desc
+
 
     @staticmethod
     def listOfConstants(p=None):
@@ -31,6 +33,7 @@ class const(object):
 
         return consts
 
+
 def index(request):
     if request.user.is_authenticated:
         class piIndex(object):
@@ -46,14 +49,15 @@ def index(request):
         p = getParams()
         params = request.GET
 
-        AVG = int(params.get('AVG', p[0]))
-        STD = int(params.get('STD', p[1]))
-        LASTN = int(params.get('LASTN', p[2]))
+        AVG =      int(params.get('AVG', p[0]))
+        STD =      int(params.get('STD', p[1]))
+        LASTN =    int(params.get('LASTN', p[2]))
         DIFF_MIN = int(params.get('DIFF_MIN', p[3]))
         DIFF_MAX = int(params.get('DIFF_MAX', p[4]))
-        MULT = float(params.get('MULT', p[5]))
-        INTV = int(params.get('INTV', p[6]))
-        setParams((AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV))
+        MULT =     float(params.get('MULT', p[5]))
+        INTV =     int(params.get('INTV', p[6]))
+
+        setParams(( AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV ))
 
         consts = const.listOfConstants((AVG, STD, LASTN, DIFF_MIN, DIFF_MAX, MULT, INTV))
 
@@ -100,7 +104,6 @@ def simul(request, pi_id):
                                       round(float(d[-1].replace('\n', '').replace('\r', '')), 1)])
                     else:
                         pass
-
 
         if len(times) > 0:
             Data.objects.filter(pi=cont['pi'], status="nurse").delete()

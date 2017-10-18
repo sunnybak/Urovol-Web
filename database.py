@@ -8,7 +8,7 @@ from uv_hero.algorithm import alg
 
 sys.path.append('uv_hero')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'uv_hero.settings'
-os.environ['DATABASE_URL'] = 'postgres://u82igt0qtftuee:p2a86c1e8c0bdc274664b9fae1a3507a97a6d7c4be5b6475fa82996799202968a@ec2-34-230-191-133.compute-1.amazonaws.com:5432/d8b1o1r9gidjh0'
+os.environ['DATABASE_URL'] = 'postgres://kznrowmqsnyetc:RRjBYCRf8crRhzrpHmk-HcPvnb@ec2-54-163-253-94.compute-1.amazonaws.com:5432/d5nq5opbhumdlr'
 django.setup()
 
 from records.models import Pi, Data
