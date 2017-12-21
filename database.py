@@ -4,7 +4,7 @@ import django
 import shutil, csv, glob, xlrd
 import numpy as np
 from copy import deepcopy
-from uv_hero.algorithm import alg
+from uv_hero.algorithm import *
 
 sys.path.append('uv_hero')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'uv_hero.settings'
@@ -23,24 +23,24 @@ def generateCSVcomparison(code):
 
     piReadings = Data.objects.filter(pi=Pi.objects.filter(code=code)[0])
 
-    for d in piReadings.exclude(status="nurse"):
+    for d in piReadings.exclude(status="nurse").exclude(status="manual"):
         data.append([int(d.date_time), float(d.raw_vol)])
 
     par = getParams()
     sortedProc = alg(sorted(deepcopy(data), key=lambda x: x[0]), par)
 
     nurseReadings = sorted(piReadings.filter(status="nurse"), key= lambda x: x.date_time)
+    manualReadings = sorted(piReadings.filter(status="manual"), key= lambda x: x.date_time)
 
+    # making CSV files for Nurse readings
     if len(nurseReadings) > 0:
-        print("\tGenerating CSV...")
-
-        csvfile = open(path + code + '.csv', 'w', newline='')
+        print("\tGenerating Nurse CSV...")
+        csvfile = open(path + 'Nur' + code + '.csv', 'w', newline='')
         writer = csv.writer(csvfile)
-        writer.writerow(['Timestamp', 'Manual', 'Processed'])
+        writer.writerow(['Timestamp', 'Nurse', 'Processed'])
         for manualRead in nurseReadings:
             row = []
             proc = []
-
             for times in range(-60 + int(manualRead.date_time), 61 + int(manualRead.date_time)):
                 ds = [x for x in sortedProc if x[0] == times]
                 if len(proc) > 6:
@@ -48,35 +48,58 @@ def generateCSVcomparison(code):
                 if len(ds) > 0:
                     for d in ds:
                         proc.append(d[1])
-
             row.append(manualRead.date_time)
             row.append(manualRead.cum_vol)
             if len(proc) > 0:
                 row.append(round(np.mean(proc), 1))
             else:
                 row.append('')
-
             writer.writerow(row)
-
         csvfile.close()
 
-        print("\tSuccessfully generated CSV!\n")
+        print("\tSuccessfully generated Nurse CSV!\n")
+
+
+    # making CSV files for Manual readings
+    if len(manualReadings) > 0:
+        print("\tGenerating Manual CSV...")
+        csvfile = open(path + 'Man' + code + '.csv', 'w', newline='')
+        writer = csv.writer(csvfile)
+        writer.writerow(['Timestamp', 'Manual', 'Processed'])
+        for manualRead in manualReadings:
+            row = []
+            proc = []
+            for times in range(-60 + int(manualRead.date_time), 61 + int(manualRead.date_time)):
+                ds = [x for x in sortedProc if x[0] == times]
+                if len(proc) > 6:
+                    break
+                if len(ds) > 0:
+                    for d in ds:
+                        proc.append(d[1])
+            row.append(manualRead.date_time)
+            row.append(manualRead.cum_vol)
+            if len(proc) > 0:
+                row.append(round(np.mean(proc), 1))
+            else:
+                row.append('')
+            writer.writerow(row)
+        csvfile.close()
+
+        print("\tSuccessfully generated Manual CSV!\n")
 
 
 if __name__ == "__main__":
 
-    # Data.objects.filter(status="nurse").delete()
-    # path = '/Users/Shikhar/Google Drive/Combined/'
-    #
-    # try:
-    #     shutil.rmtree(path) # removes all files from this path
-    # except:
-    #     print('enter the correct path')
-    #
-    # os.makedirs(path)
+    path = '/Users/Shikhar/Google Drive/Combined/'
 
+    try:
+        shutil.rmtree(path) # removes all files from this path
+    except:
+        print('enter the correct path')
+
+    os.makedirs(path)
+    manR = 0
     print('starting glob')
-
     for fileName in glob.glob('/Users/Shikhar/Google Drive/Manual Data/*.xls'):
         workbook = xlrd.open_workbook(fileName)
         sheet = workbook.sheet_by_index(0)
@@ -116,23 +139,39 @@ if __name__ == "__main__":
                 cumVol = sheet.col_values(7)[3::]
                 cumTimes = [x for x in sheet.col_values(6)[3::]]
                 cumTimes = [int((float(x) - 25569) * 86400 + 14400) for x in cumTimes if x != '']
-
-                print("\tAdding Nurse data...")
-                for i in range(0, len(cumTimes)):
-                    Data(date_time=cumTimes[i], raw_vol=0, cum_vol=cumVol[i], new_vol=0, las_vol=0, status="nurse",
-                         pi=piOb).save()
-                print("\tSuccessfully added all the nurse data!\n")
+                if len(cumTimes) != 0:
+                    print("\tAdding Nurse data...")
+                    for i in range(0, len(cumTimes)):
+                        Data(date_time=cumTimes[i], raw_vol=0, cum_vol=cumVol[i], new_vol=0, las_vol=0, status="nurse",
+                             pi=piOb).save()
+                    print("\tSuccessfully added all the nurse data!\n")
             except IndexError:
                 print("\t---No nurse data available for this session---\n")
-                continue
             except:
                 print("\t---error reading sheet: adding Nurse data---\n")
-                continue
 
-            # try:
-            #     generateCSVcomparison(code)
-            # except:
-            #     print("\t---error generating comparison CSV---\n")
-            #     continue
+        if len(Data.objects.filter(pi=piOb, status="manual")) == 0:
+            try:
+                cumVol = sheet.col_values(5)[3::]
+                cumTimes = [x for x in sheet.col_values(4)[3::]]
+                cumTimes = [int((float(x) - 25569) * 86400 + 14400) for x in cumTimes if x != '']
+                if len(cumTimes) != 0:
+                    print("\tAdding Manual data...")
+                    for i in range(0, len(cumTimes)):
+                        manR+=1
+                        Data(date_time=cumTimes[i], raw_vol=0, cum_vol=cumVol[i], new_vol=0, las_vol=0, status="manual",
+                             pi=piOb).save()
+                    print("\tSuccessfully added all the manual data!\n")
+            except IndexError:
+                print("\t---No manual data available for this session---\n")
+            except:
+                print("\t---error reading sheet: adding Manual data---\n")
+
+        try:
+            generateCSVcomparison(code)
+        except:
+            print("\t---error generating comparison CSV---\n")
+            continue
 
         print("Done!")
+    print("added " + str(manR) + " manual readings")

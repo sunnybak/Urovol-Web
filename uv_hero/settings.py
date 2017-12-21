@@ -82,6 +82,8 @@ WSGI_APPLICATION = 'uv_hero.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+os.environ['DATABASE_URL'] = 'postgres://kznrowmqsnyetc:RRjBYCRf8crRhzrpHmk-HcPvnb@ec2-54-163-253-94.compute-1.amazonaws.com:5432/d5nq5opbhumdlr'
+
 DATABASES = {
 
     # Default offline sqlite database
